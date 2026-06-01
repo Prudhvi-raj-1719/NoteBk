@@ -1,0 +1,42 @@
+{"visitor_id": 4, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "MARS", "timestamp": "00:00:07.674", "event_datetime": "2026-04-10T20:10:09.674"}
+{"visitor_id": 12, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LAKME", "timestamp": "00:00:16.683", "event_datetime": "2026-04-10T20:10:18.683"}
+{"visitor_id": 4, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "MARS", "timestamp": "00:00:20.020", "event_datetime": "2026-04-10T20:10:22.020"}
+{"visitor_id": 4, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "MARS", "dwell_seconds": 12.3, "timestamp": "00:00:20.020", "event_datetime": "2026-04-10T20:10:22.020"}
+{"visitor_id": 4, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "FACESCANADA", "timestamp": "00:00:20.020", "event_datetime": "2026-04-10T20:10:22.020"}
+{"visitor_id": 12, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:00:36.036", "event_datetime": "2026-04-10T20:10:38.036"}
+{"visitor_id": 12, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 19.4, "timestamp": "00:00:36.036", "event_datetime": "2026-04-10T20:10:38.036"}
+{"visitor_id": 12, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "FACESCANADA", "timestamp": "00:00:36.036", "event_datetime": "2026-04-10T20:10:38.036"}
+{"visitor_id": 6, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LAKME", "timestamp": "00:00:37.704", "event_datetime": "2026-04-10T20:10:39.704"}
+{"visitor_id": 12, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "FACESCANADA", "timestamp": "00:00:50.384", "event_datetime": "2026-04-10T20:10:52.384"}
+{"visitor_id": 12, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "FACESCANADA", "dwell_seconds": 14.3, "timestamp": "00:00:50.384", "event_datetime": "2026-04-10T20:10:52.384"}
+{"visitor_id": 6, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:00:51.051", "event_datetime": "2026-04-10T20:10:53.051"}
+{"visitor_id": 6, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 13.3, "timestamp": "00:00:51.051", "event_datetime": "2026-04-10T20:10:53.051"}
+{"visitor_id": 4, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "FACESCANADA", "timestamp": "00:00:56.390", "event_datetime": "2026-04-10T20:10:58.390"}
+{"visitor_id": 4, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "FACESCANADA", "dwell_seconds": 36.4, "timestamp": "00:00:56.390", "event_datetime": "2026-04-10T20:10:58.390"}
+{"visitor_id": 19, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LAKME", "timestamp": "00:00:59.059", "event_datetime": "2026-04-10T20:11:01.059"}
+{"visitor_id": 23, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "swiss Beauty", "timestamp": "00:01:06.400", "event_datetime": "2026-04-10T20:11:08.400"}
+{"visitor_id": 24, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "MARS", "timestamp": "00:01:07.401", "event_datetime": "2026-04-10T20:11:09.401"}
+{"visitor_id": 19, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:01:14.408", "event_datetime": "2026-04-10T20:11:16.408"}
+{"visitor_id": 19, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 15.3, "timestamp": "00:01:14.408", "event_datetime": "2026-04-10T20:11:16.408"}
+{"visitor_id": 6, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LAKME", "timestamp": "00:01:28.088", "event_datetime": "2026-04-10T20:11:30.088"}
+{"visitor_id": 23, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "swiss Beauty", "timestamp": "00:01:30.090", "event_datetime": "2026-04-10T20:11:32.090"}
+{"visitor_id": 23, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "swiss Beauty", "dwell_seconds": 23.7, "timestamp": "00:01:30.090", "event_datetime": "2026-04-10T20:11:32.090"}
+{"visitor_id": 32, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "swiss Beauty", "timestamp": "00:01:31.425", "event_datetime": "2026-04-10T20:11:33.425"}
+{"visitor_id": 32, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "swiss Beauty", "timestamp": "00:01:48.442", "event_datetime": "2026-04-10T20:11:50.442"}
+{"visitor_id": 32, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "swiss Beauty", "dwell_seconds": 17.0, "timestamp": "00:01:48.442", "event_datetime": "2026-04-10T20:11:50.442"}
+{"visitor_id": 23, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LAKME", "timestamp": "00:01:51.445", "event_datetime": "2026-04-10T20:11:53.445"}
+{"visitor_id": 24, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "MARS", "timestamp": "00:01:52.446", "event_datetime": "2026-04-10T20:11:54.446"}
+{"visitor_id": 24, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "MARS", "dwell_seconds": 45.0, "timestamp": "00:01:52.446", "event_datetime": "2026-04-10T20:11:54.446"}
+{"visitor_id": 24, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LOREAL", "timestamp": "00:01:52.446", "event_datetime": "2026-04-10T20:11:54.446"}
+{"visitor_id": 6, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:01:52.779", "event_datetime": "2026-04-10T20:11:54.779"}
+{"visitor_id": 6, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 24.7, "timestamp": "00:01:52.779", "event_datetime": "2026-04-10T20:11:54.779"}
+{"visitor_id": 6, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LAKME", "timestamp": "00:01:59.119", "event_datetime": "2026-04-10T20:12:01.119"}
+{"visitor_id": 35, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LOREAL", "timestamp": "00:01:59.453", "event_datetime": "2026-04-10T20:12:01.453"}
+{"visitor_id": 35, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LOREAL", "timestamp": "00:02:01.455", "event_datetime": "2026-04-10T20:12:03.455"}
+{"visitor_id": 35, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LOREAL", "dwell_seconds": 2.0, "timestamp": "00:02:01.455", "event_datetime": "2026-04-10T20:12:03.455"}
+{"visitor_id": 6, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:02:04.458", "event_datetime": "2026-04-10T20:12:06.458"}
+{"visitor_id": 6, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 5.3, "timestamp": "00:02:04.458", "event_datetime": "2026-04-10T20:12:06.458"}
+{"visitor_id": 24, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LOREAL", "timestamp": "00:02:05.926", "event_datetime": "2026-04-10T20:12:07.926"}
+{"visitor_id": 24, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LOREAL", "dwell_seconds": 13.5, "timestamp": "00:02:05.926", "event_datetime": "2026-04-10T20:12:07.926"}
+{"visitor_id": 23, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:02:05.926", "event_datetime": "2026-04-10T20:12:07.926"}
+{"visitor_id": 23, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 14.5, "timestamp": "00:02:05.926", "event_datetime": "2026-04-10T20:12:07.926"}

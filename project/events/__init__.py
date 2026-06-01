@@ -1,0 +1,1 @@
+"""CCTV event generation scripts."""

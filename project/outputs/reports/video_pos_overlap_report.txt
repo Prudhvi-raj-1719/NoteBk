@@ -1,0 +1,29 @@
+VIDEO / POS TIME OVERLAP ANALYSIS
+
+Purpose: verify CCTV event times overlap POS before purchase_matching.py
+
+Inputs:
+  - aggregated_transactions.json
+  - cam1_events_normalized.jsonl
+  - cam2_events_normalized.jsonl
+
+CCTV event sources:
+  Loaded 24 events from cam1_events_normalized.jsonl
+  Loaded 42 events from cam2_events_normalized.jsonl
+Total events with event_datetime: 66
+
+CCTV timeline (all normalized events):
+  video_start = 2026-04-10 20:10:09
+  video_end   = 2026-04-10 20:12:46
+
+POS search window (video_start - 5 min to video_end + 5 min):
+  from = 2026-04-10 20:05:09
+  to   = 2026-04-10 20:17:46
+
+Total invoices in aggregated_transactions.json: 24
+Matching invoices in window: 0
+
+No POS transactions fall inside the padded CCTV window. Purchase matching on this clip set is unlikely to find pairs until CCTV and POS times are confirmed aligned.
+
+Conclusion:
+  No invoice overlap in the padded window — review camera anchors or POS day before purchase_matching.py.

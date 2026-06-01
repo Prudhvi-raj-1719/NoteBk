@@ -1,0 +1,836 @@
+{
+  "generated_at": "2026-05-31T16:06:40",
+  "cctv_analytics": {
+    "total_events": 66,
+    "brand_visit_counts": {
+      "LAKME": 6,
+      "Pilgrim": 3,
+      "Aquologica": 3,
+      "MARS": 2,
+      "FACESCANADA": 2,
+      "swiss Beauty": 2,
+      "LOREAL": 2,
+      "GoodVibes": 1,
+      "DermaCo": 1
+    },
+    "zone_dwell_times": {
+      "LAKME": {
+        "total_dwell_seconds": 92.5,
+        "average_dwell_seconds": 15.4,
+        "dwell_event_count": 6
+      },
+      "Pilgrim": {
+        "total_dwell_seconds": 78.8,
+        "average_dwell_seconds": 26.3,
+        "dwell_event_count": 3
+      },
+      "MARS": {
+        "total_dwell_seconds": 57.3,
+        "average_dwell_seconds": 28.6,
+        "dwell_event_count": 2
+      },
+      "Aquologica": {
+        "total_dwell_seconds": 52.1,
+        "average_dwell_seconds": 17.4,
+        "dwell_event_count": 3
+      },
+      "FACESCANADA": {
+        "total_dwell_seconds": 50.7,
+        "average_dwell_seconds": 25.4,
+        "dwell_event_count": 2
+      },
+      "swiss Beauty": {
+        "total_dwell_seconds": 40.7,
+        "average_dwell_seconds": 20.4,
+        "dwell_event_count": 2
+      },
+      "GoodVibes": {
+        "total_dwell_seconds": 20.0,
+        "average_dwell_seconds": 20.0,
+        "dwell_event_count": 1
+      },
+      "LOREAL": {
+        "total_dwell_seconds": 15.5,
+        "average_dwell_seconds": 7.8,
+        "dwell_event_count": 2
+      },
+      "DermaCo": {
+        "total_dwell_seconds": 10.8,
+        "average_dwell_seconds": 10.8,
+        "dwell_event_count": 1
+      }
+    },
+    "most_visited_brands": [
+      {
+        "brand": "LAKME",
+        "visits": 6
+      },
+      {
+        "brand": "Pilgrim",
+        "visits": 3
+      },
+      {
+        "brand": "Aquologica",
+        "visits": 3
+      },
+      {
+        "brand": "MARS",
+        "visits": 2
+      },
+      {
+        "brand": "FACESCANADA",
+        "visits": 2
+      }
+    ],
+    "least_visited_brands": [
+      {
+        "brand": "DermaCo",
+        "visits": 1
+      },
+      {
+        "brand": "GoodVibes",
+        "visits": 1
+      },
+      {
+        "brand": "FACESCANADA",
+        "visits": 2
+      },
+      {
+        "brand": "LOREAL",
+        "visits": 2
+      },
+      {
+        "brand": "MARS",
+        "visits": 2
+      }
+    ],
+    "top_5_visitor_journeys": [
+      {
+        "visitor_id": "2",
+        "zone_sequence": [
+          "Pilgrim",
+          "Aquologica",
+          "Pilgrim",
+          "Aquologica",
+          "Pilgrim",
+          "Aquologica"
+        ],
+        "unique_zones": 2,
+        "total_zone_entries": 6
+      },
+      {
+        "visitor_id": "6",
+        "zone_sequence": [
+          "LAKME",
+          "LAKME",
+          "LAKME"
+        ],
+        "unique_zones": 1,
+        "total_zone_entries": 3
+      },
+      {
+        "visitor_id": "4",
+        "zone_sequence": [
+          "MARS",
+          "FACESCANADA"
+        ],
+        "unique_zones": 2,
+        "total_zone_entries": 2
+      },
+      {
+        "visitor_id": "12",
+        "zone_sequence": [
+          "LAKME",
+          "FACESCANADA"
+        ],
+        "unique_zones": 2,
+        "total_zone_entries": 2
+      },
+      {
+        "visitor_id": "1",
+        "zone_sequence": [
+          "GoodVibes",
+          "DermaCo"
+        ],
+        "unique_zones": 2,
+        "total_zone_entries": 2
+      }
+    ],
+    "event_sources": {
+      "CAM1": 24,
+      "CAM2": 42,
+      "CAM5": 0
+    }
+  },
+  "pos_analytics": {
+    "total_invoices": 24,
+    "total_revenue": 34331.71,
+    "average_basket_value": 1430.49,
+    "revenue_by_brand": {
+      "Faces Canada": 6417.78975,
+      "Purplle": 5184.333083333333,
+      "Good Vibes": 3024.436416666667,
+      "NY Bae": 2465.31,
+      "GUBB": 2175.4364166666664,
+      "DERMDOC": 1327.2224999999999,
+      "Maybelline": 1250.5966666666666,
+      "Bare Anatomy": 1115.5233333333335,
+      "Foxtale": 1030.40375,
+      "Garnier": 1030.40375,
+      "Lotus Herbals": 1030.40375,
+      "Renee": 1030.40375,
+      "Beauty of Joseon": 1025.66,
+      "COSRX": 1022.0,
+      "Carmesi": 982.7425,
+      "Juicy Chemistry": 712.2425,
+      "CUFFS N LASHES": 693.4359999999999,
+      "Lakme": 693.0,
+      "Round Lab": 688.0233333333334,
+      "Swiss Beauty": 651.0,
+      "Alps Goodness": 512.2425,
+      "Neutrogena": 269.1
+    },
+    "revenue_by_category": {
+      "makeup": 13834.249166666666,
+      "skin": 8316.146666666666,
+      "bath-and-body": 6650.911666666666,
+      "personal-care": 2938.7974999999997,
+      "hair": 2079.3625,
+      "fragrance": 512.2425
+    },
+    "top_selling_products": [
+      {
+        "product": "Good Vibes Brightening Sheet Mask - Rice (20 ml)",
+        "invoice_line_count": 5
+      },
+      {
+        "product": "Purplle Carry Bag Small 1.0 -1 cartoon = 250 qty. - 3 gm",
+        "invoice_line_count": 5
+      },
+      {
+        "product": "Good Vibes Saffron Natural Glow Sheet Mask | For Glowing & Smooth Skin | Fights Signs Of Ageing  Treats Rough & Dull Skin (20 gm)",
+        "invoice_line_count": 4
+      },
+      {
+        "product": "FACES CANADA Beyond Shine Lip Gloss - Gleam Dream 11 | Lightweight Non-Sticky Luxurious Texture For Glossy Lips | Shimmer Finish | Instant Shine | Fuller  Supple & Plump Lips | 24 - HR Hydration - 3.8 ml",
+        "invoice_line_count": 2
+      },
+      {
+        "product": "FACES CANADA 3 in 1 Flawless Matte Concealer - Caramel  8 gm | Full Coverage | Long Lasting | Hydrating Concealer for Dark Circles  Dark Spots & Blemishes | Brightens Under Eyes | Lightweight & Blendable",
+        "invoice_line_count": 2
+      },
+      {
+        "product": "FACES CANADA Setting and Finishing Loose Powder  10 gm | Sheer Coverage & Naturally Radiant Finish | Non- Drying & Lightweight | Evens Out Skin Tone | Soft Focus Effect | Blurs Imperfections",
+        "invoice_line_count": 2
+      },
+      {
+        "product": "GUBB Cotton Pads for Face Cleansing & Makeup Removal  Embossed - 100 Pads",
+        "invoice_line_count": 2
+      },
+      {
+        "product": "Good Vibes Pearl Illuminating Sheet Mask | For Bright & Glowing Skin | Suitable For All Skin Types (20 gm)",
+        "invoice_line_count": 2
+      },
+      {
+        "product": "Purplle Makeup Pouch JAS 25 - 40 gm",
+        "invoice_line_count": 2
+      },
+      {
+        "product": "NY Bae Dewy Creme Blush - Sweet Mauve 02 (5.5 ml) | Liquid Blush | Dewy & Bold Finish | Natural Glow | Lightweight Formula | Buildable Pigment | Everyday Makeup | Hydrating Blush | Silky & Weightless | Long-Lasting Wear",
+        "invoice_line_count": 2
+      }
+    ]
+  },
+  "purchase_matching_analytics": {
+    "matched_invoices": 0,
+    "unmatched_invoices": 24,
+    "average_confidence": null,
+    "conversion_opportunities": [
+      {
+        "invoice_number": "ML0426KAP0001321",
+        "transaction_datetime": "2026-04-10 12:15:05",
+        "brands_purchased": [
+          "Faces Canada"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001324",
+        "transaction_datetime": "2026-04-10 12:42:18",
+        "brands_purchased": [
+          "Faces Canada",
+          "Foxtale",
+          "GUBB",
+          "Garnier",
+          "Good Vibes",
+          "Lotus Herbals",
+          "Purplle",
+          "Renee"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001333",
+        "transaction_datetime": "2026-04-10 13:41:55",
+        "brands_purchased": [
+          "Good Vibes"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001336",
+        "transaction_datetime": "2026-04-10 13:55:16",
+        "brands_purchased": [
+          "Carmesi",
+          "Purplle"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001337",
+        "transaction_datetime": "2026-04-10 14:23:21",
+        "brands_purchased": [
+          "Faces Canada"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001340",
+        "transaction_datetime": "2026-04-10 15:02:20",
+        "brands_purchased": [
+          "DERMDOC"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001346",
+        "transaction_datetime": "2026-04-10 15:46:39",
+        "brands_purchased": [
+          "Faces Canada"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001347",
+        "transaction_datetime": "2026-04-10 15:50:44",
+        "brands_purchased": [
+          "Juicy Chemistry",
+          "Purplle"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001348",
+        "transaction_datetime": "2026-04-10 16:08:03",
+        "brands_purchased": [
+          "Maybelline"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001353",
+        "transaction_datetime": "2026-04-10 16:45:32",
+        "brands_purchased": [
+          "Beauty of Joseon",
+          "Faces Canada",
+          "Purplle"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001358",
+        "transaction_datetime": "2026-04-10 16:55:36",
+        "brands_purchased": [
+          "Alps Goodness",
+          "Carmesi",
+          "DERMDOC",
+          "Juicy Chemistry"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001366",
+        "transaction_datetime": "2026-04-10 17:44:44",
+        "brands_purchased": [
+          "NY Bae"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001369",
+        "transaction_datetime": "2026-04-10 17:55:02",
+        "brands_purchased": [
+          "NY Bae"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001372",
+        "transaction_datetime": "2026-04-10 18:00:18",
+        "brands_purchased": [
+          "Faces Canada"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001374",
+        "transaction_datetime": "2026-04-10 18:07:14",
+        "brands_purchased": [
+          "Lakme"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001384",
+        "transaction_datetime": "2026-04-10 18:41:51",
+        "brands_purchased": [
+          "Bare Anatomy",
+          "Purplle",
+          "Round Lab"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001393",
+        "transaction_datetime": "2026-04-10 19:02:09",
+        "brands_purchased": [
+          "Faces Canada",
+          "Purplle"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001399",
+        "transaction_datetime": "2026-04-10 19:21:55",
+        "brands_purchased": [
+          "CUFFS N LASHES",
+          "Faces Canada",
+          "GUBB",
+          "Good Vibes",
+          "Purplle"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001401",
+        "transaction_datetime": "2026-04-10 19:33:52",
+        "brands_purchased": [
+          "COSRX",
+          "Carmesi",
+          "NY Bae"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001403",
+        "transaction_datetime": "2026-04-10 19:41:29",
+        "brands_purchased": [
+          "COSRX",
+          "Good Vibes",
+          "Swiss Beauty"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001408",
+        "transaction_datetime": "2026-04-10 19:54:02",
+        "brands_purchased": [
+          "GUBB",
+          "Good Vibes",
+          "Maybelline"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001418",
+        "transaction_datetime": "2026-04-10 20:25:04",
+        "brands_purchased": [
+          "Faces Canada",
+          "NY Bae",
+          "Purplle"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001438",
+        "transaction_datetime": "2026-04-10 21:16:15",
+        "brands_purchased": [
+          "Neutrogena"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      },
+      {
+        "invoice_number": "ML0426KAP0001443",
+        "transaction_datetime": "2026-04-10 21:39:55",
+        "brands_purchased": [
+          "Bare Anatomy"
+        ],
+        "reason": "No CCTV events in time window",
+        "nearby_cctv_event_count": 0,
+        "zones_in_window": []
+      }
+    ],
+    "matched_invoice_numbers": [],
+    "unmatched_invoice_numbers": [
+      "ML0426KAP0001321",
+      "ML0426KAP0001324",
+      "ML0426KAP0001333",
+      "ML0426KAP0001336",
+      "ML0426KAP0001337",
+      "ML0426KAP0001340",
+      "ML0426KAP0001346",
+      "ML0426KAP0001347",
+      "ML0426KAP0001348",
+      "ML0426KAP0001353",
+      "ML0426KAP0001358",
+      "ML0426KAP0001366",
+      "ML0426KAP0001369",
+      "ML0426KAP0001372",
+      "ML0426KAP0001374",
+      "ML0426KAP0001384",
+      "ML0426KAP0001393",
+      "ML0426KAP0001399",
+      "ML0426KAP0001401",
+      "ML0426KAP0001403",
+      "ML0426KAP0001408",
+      "ML0426KAP0001418",
+      "ML0426KAP0001438",
+      "ML0426KAP0001443"
+    ]
+  },
+  "combined_insights": {
+    "brands_visited_cctv": {
+      "LAKME": 6,
+      "Pilgrim": 3,
+      "Aquologica": 3,
+      "MARS": 2,
+      "FACESCANADA": 2,
+      "swiss Beauty": 2,
+      "LOREAL": 2,
+      "GoodVibes": 1,
+      "DermaCo": 1
+    },
+    "brands_purchased_pos": {
+      "Faces Canada": 6417.78975,
+      "Purplle": 5184.333083333333,
+      "Good Vibes": 3024.436416666667,
+      "NY Bae": 2465.31,
+      "GUBB": 2175.4364166666664,
+      "DERMDOC": 1327.2224999999999,
+      "Maybelline": 1250.5966666666666,
+      "Bare Anatomy": 1115.5233333333335,
+      "Foxtale": 1030.40375,
+      "Garnier": 1030.40375,
+      "Lotus Herbals": 1030.40375,
+      "Renee": 1030.40375,
+      "Beauty of Joseon": 1025.66,
+      "COSRX": 1022.0,
+      "Carmesi": 982.7425,
+      "Juicy Chemistry": 712.2425,
+      "CUFFS N LASHES": 693.4359999999999,
+      "Lakme": 693.0,
+      "Round Lab": 688.0233333333334,
+      "Swiss Beauty": 651.0,
+      "Alps Goodness": 512.2425,
+      "Neutrogena": 269.1
+    },
+    "brand_name_mapping_cctv_to_pos": {
+      "LAKME": "Lakme",
+      "Pilgrim": null,
+      "Aquologica": null,
+      "MARS": null,
+      "FACESCANADA": "Faces Canada",
+      "swiss Beauty": "Swiss Beauty",
+      "LOREAL": null,
+      "GoodVibes": "Good Vibes",
+      "DermaCo": null
+    },
+    "brand_comparison": [
+      {
+        "brand_key": "lakme",
+        "pos_brand_name": "Lakme",
+        "cctv_visits": 6,
+        "revenue": 693.0
+      },
+      {
+        "brand_key": "pilgrim",
+        "pos_brand_name": "pilgrim",
+        "cctv_visits": 3,
+        "revenue": 0.0
+      },
+      {
+        "brand_key": "aquologica",
+        "pos_brand_name": "aquologica",
+        "cctv_visits": 3,
+        "revenue": 0.0
+      },
+      {
+        "brand_key": "facescanada",
+        "pos_brand_name": "Faces Canada",
+        "cctv_visits": 2,
+        "revenue": 6417.79
+      },
+      {
+        "brand_key": "swissbeauty",
+        "pos_brand_name": "Swiss Beauty",
+        "cctv_visits": 2,
+        "revenue": 651.0
+      },
+      {
+        "brand_key": "loreal",
+        "pos_brand_name": "loreal",
+        "cctv_visits": 2,
+        "revenue": 0.0
+      },
+      {
+        "brand_key": "mars",
+        "pos_brand_name": "mars",
+        "cctv_visits": 2,
+        "revenue": 0.0
+      },
+      {
+        "brand_key": "goodvibes",
+        "pos_brand_name": "Good Vibes",
+        "cctv_visits": 1,
+        "revenue": 3024.44
+      },
+      {
+        "brand_key": "dermaco",
+        "pos_brand_name": "dermaco",
+        "cctv_visits": 1,
+        "revenue": 0.0
+      },
+      {
+        "brand_key": "purplle",
+        "pos_brand_name": "Purplle",
+        "cctv_visits": 0,
+        "revenue": 5184.33
+      },
+      {
+        "brand_key": "nybae",
+        "pos_brand_name": "NY Bae",
+        "cctv_visits": 0,
+        "revenue": 2465.31
+      },
+      {
+        "brand_key": "gubb",
+        "pos_brand_name": "GUBB",
+        "cctv_visits": 0,
+        "revenue": 2175.44
+      },
+      {
+        "brand_key": "dermdoc",
+        "pos_brand_name": "DERMDOC",
+        "cctv_visits": 0,
+        "revenue": 1327.22
+      },
+      {
+        "brand_key": "maybelline",
+        "pos_brand_name": "Maybelline",
+        "cctv_visits": 0,
+        "revenue": 1250.6
+      },
+      {
+        "brand_key": "bareanatomy",
+        "pos_brand_name": "Bare Anatomy",
+        "cctv_visits": 0,
+        "revenue": 1115.52
+      },
+      {
+        "brand_key": "garnier",
+        "pos_brand_name": "Garnier",
+        "cctv_visits": 0,
+        "revenue": 1030.4
+      },
+      {
+        "brand_key": "foxtale",
+        "pos_brand_name": "Foxtale",
+        "cctv_visits": 0,
+        "revenue": 1030.4
+      },
+      {
+        "brand_key": "renee",
+        "pos_brand_name": "Renee",
+        "cctv_visits": 0,
+        "revenue": 1030.4
+      },
+      {
+        "brand_key": "lotusherbals",
+        "pos_brand_name": "Lotus Herbals",
+        "cctv_visits": 0,
+        "revenue": 1030.4
+      },
+      {
+        "brand_key": "beautyofjoseon",
+        "pos_brand_name": "Beauty of Joseon",
+        "cctv_visits": 0,
+        "revenue": 1025.66
+      },
+      {
+        "brand_key": "cosrx",
+        "pos_brand_name": "COSRX",
+        "cctv_visits": 0,
+        "revenue": 1022.0
+      },
+      {
+        "brand_key": "carmesi",
+        "pos_brand_name": "Carmesi",
+        "cctv_visits": 0,
+        "revenue": 982.74
+      },
+      {
+        "brand_key": "juicychemistry",
+        "pos_brand_name": "Juicy Chemistry",
+        "cctv_visits": 0,
+        "revenue": 712.24
+      },
+      {
+        "brand_key": "cuffsnlashes",
+        "pos_brand_name": "CUFFS N LASHES",
+        "cctv_visits": 0,
+        "revenue": 693.44
+      },
+      {
+        "brand_key": "roundlab",
+        "pos_brand_name": "Round Lab",
+        "cctv_visits": 0,
+        "revenue": 688.02
+      },
+      {
+        "brand_key": "alpsgoodness",
+        "pos_brand_name": "Alps Goodness",
+        "cctv_visits": 0,
+        "revenue": 512.24
+      },
+      {
+        "brand_key": "neutrogena",
+        "pos_brand_name": "Neutrogena",
+        "cctv_visits": 0,
+        "revenue": 269.1
+      }
+    ],
+    "high_interest_low_sales": [
+      {
+        "brand_key": "pilgrim",
+        "pos_brand_name": "pilgrim",
+        "cctv_visits": 3,
+        "revenue": 0.0
+      },
+      {
+        "brand_key": "aquologica",
+        "pos_brand_name": "aquologica",
+        "cctv_visits": 3,
+        "revenue": 0.0
+      }
+    ],
+    "high_sales_low_engagement": [
+      {
+        "brand_key": "goodvibes",
+        "pos_brand_name": "Good Vibes",
+        "cctv_visits": 1,
+        "revenue": 3024.44
+      },
+      {
+        "brand_key": "purplle",
+        "pos_brand_name": "Purplle",
+        "cctv_visits": 0,
+        "revenue": 5184.33
+      },
+      {
+        "brand_key": "nybae",
+        "pos_brand_name": "NY Bae",
+        "cctv_visits": 0,
+        "revenue": 2465.31
+      },
+      {
+        "brand_key": "gubb",
+        "pos_brand_name": "GUBB",
+        "cctv_visits": 0,
+        "revenue": 2175.44
+      }
+    ],
+    "most_engaged_zone": {
+      "brand_key": "lakme",
+      "pos_brand_name": "Lakme",
+      "cctv_visits": 6,
+      "revenue": 693.0
+    },
+    "most_purchased_brand": {
+      "brand_key": "facescanada",
+      "pos_brand_name": "Faces Canada",
+      "cctv_visits": 2,
+      "revenue": 6417.79
+    },
+    "observations": [
+      "High interest, low sales: pilgrim, aquologica.",
+      "High sales, low engagement (CCTV window): Good Vibes, Purplle, NY Bae.",
+      "Most engaged zone (visits): Lakme (6 entries).",
+      "Most purchased brand (revenue): Faces Canada (INR 6,417.79).",
+      "No invoices matched CCTV events in the purchase-matching window; combined visit vs purchase signals use full-day POS vs clip-period CCTV."
+    ]
+  },
+  "executive_insights": [
+    "LAKME recorded the highest shelf traffic with 6 zone entries in the analyzed CCTV clips.",
+    "LAKME accumulated the longest total dwell time (92.5s) across visitors.",
+    "Faces Canada generated the highest revenue (INR 6,417.79) across 24 invoices.",
+    "Category 'makeup' led sales with INR 13,834.25 in attributed revenue.",
+    "Average basket value was INR 1,430.49 on total revenue of INR 34,331.71.",
+    "Purchase matching linked 0 of 24 invoices to CCTV activity (average confidence: N/A).",
+    "High interest, low sales: pilgrim, aquologica.",
+    "High sales, low engagement (CCTV window): Good Vibes, Purplle, NY Bae.",
+    "Most engaged zone (visits): Lakme (6 entries).",
+    "pilgrim attracted strong visitor attention but shows no attributed purchase revenue in the POS extract - review conversion levers."
+  ],
+  "charts": [
+    "outputs\\charts\\brand_visits.png",
+    "outputs\\charts\\dwell_times.png",
+    "outputs\\charts\\revenue_by_brand.png",
+    "outputs\\charts\\revenue_by_category.png"
+  ]
+}

@@ -1,0 +1,170 @@
+POS DATA EXPLORATION REPORT
+============================================================
+File: Brigade_Bangalore_10_April_26.csv
+Path: E:\NOTEBK\Brigade_Bangalore_10_April_26.csv
+Rows: 101
+Columns: 39
+
+Column names:
+  - order_id
+  - coupon_code
+  - offer_name
+  - discount_code
+  - invoice_number
+  - invoice_type
+  - order_date
+  - order_time
+  - return_id
+  - store_id
+  - store_name
+  - city
+  - customer_name
+  - customer_number
+  - sku
+  - product_id
+  - ean
+  - product_name
+  - brand_name
+  - dep_name
+  - sub_category
+  - brand_type
+  - tax
+  - hsn_code
+  - salesperson_id
+  - employee_code
+  - salesperson_name
+  - qty
+  - GMV
+  - NMV
+  - coupon_amount
+  - item_promotion
+  - amt_without_gwp
+  - total_amount
+  - pb_eb_sale
+  - week_assigned
+  - tax_m
+  - taxable_amt
+  - tax_amt
+
+Data types:
+  order_id: int64
+  coupon_code: str
+  offer_name: str
+  discount_code: str
+  invoice_number: str
+  invoice_type: str
+  order_date: str
+  order_time: str
+  return_id: float64
+  store_id: str
+  store_name: str
+  city: str
+  customer_name: str
+  customer_number: int64
+  sku: str
+  product_id: int64
+  ean: float64
+  product_name: str
+  brand_name: str
+  dep_name: str
+  sub_category: str
+  brand_type: str
+  tax: int64
+  hsn_code: int64
+  salesperson_id: int64
+  employee_code: str
+  salesperson_name: str
+  qty: int64
+  GMV: int64
+  NMV: float64
+  coupon_amount: float64
+  item_promotion: float64
+  amt_without_gwp: float64
+  total_amount: float64
+  pb_eb_sale: float64
+  week_assigned: float64
+  tax_m: float64
+  taxable_amt: float64
+  tax_amt: float64
+
+Missing value counts:
+  order_id: 0
+  coupon_code: 98
+  offer_name: 28
+  discount_code: 98
+  invoice_number: 0
+  invoice_type: 0
+  order_date: 0
+  order_time: 0
+  return_id: 101
+  store_id: 0
+  store_name: 0
+  city: 0
+  customer_name: 0
+  customer_number: 0
+  sku: 0
+  product_id: 0
+  ean: 0
+  product_name: 0
+  brand_name: 0
+  dep_name: 0
+  sub_category: 0
+  brand_type: 0
+  tax: 0
+  hsn_code: 0
+  salesperson_id: 0
+  employee_code: 7
+  salesperson_name: 7
+  qty: 0
+  GMV: 0
+  NMV: 0
+  coupon_amount: 0
+  item_promotion: 0
+  amt_without_gwp: 0
+  total_amount: 0
+  pb_eb_sale: 0
+  week_assigned: 101
+  tax_m: 0
+  taxable_amt: 0
+  tax_amt: 0
+
+Detected column roles:
+  Invoice Number: invoice_number
+  Bill Number: NOT FOUND
+  Transaction ID: order_id
+  Date: order_date
+  Time: order_time
+  Timestamp: NOT FOUND
+  Product Name: product_name
+  Brand: brand_name
+  Category: dep_name
+  Quantity: qty
+  Amount: total_amount
+  Customer Number: customer_number
+  Employee Name: salesperson_name
+
+Data quality:
+  Missing timestamps: 0
+  Missing invoice/transaction IDs: 0
+  Duplicate invoice IDs (extra rows): 77
+  Duplicate full rows: 0
+  Invoices with multiple product lines: 17
+  Avg lines per invoice: 4.21
+  Max lines per invoice: 24
+
+Datetime structure:
+  Date and time separate: True
+  Timestamp column exists: False
+  Date column: order_date
+  Time column: order_time
+  Timestamp column: None
+
+Columns suitable for purchase matching:
+  - Invoice key: invoice_number
+  - Datetime: combine order_date + order_time
+  - Amount: total_amount
+  - Product Name: product_name
+  - Brand: brand_name
+  - Category: dep_name
+  - Quantity: qty
+  - Customer Number: customer_number

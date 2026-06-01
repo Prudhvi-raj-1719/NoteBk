@@ -1,0 +1,33 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Secrets
+.env
+.env.*
+*.pem
+credentials.json
+
+# Large / local-only data
+project/data/CCTV Footage/
+project/data/cctv/
+*.mp4
+*.avi
+*.mkv
+
+# Optional: YOLO weights (uncomment to keep repo small; download separately)
+# project/yolo11m.pt
+
+# IDE / OS
+.idea/
+.vscode/
+.cursor/
+Thumbs.db
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/

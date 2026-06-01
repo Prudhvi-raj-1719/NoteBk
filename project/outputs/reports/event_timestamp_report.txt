@@ -1,0 +1,169 @@
+CCTV EVENT TIMESTAMP INSPECTION REPORT
+
+======================================================================
+cam1_events.jsonl
+======================================================================
+Exists: True
+Event count: 96
+Parse errors: 0
+Missing timestamps: 0
+Timestamp format: Mixed: 32 video offsets (HH:MM:SS.mmm) + 64 ISO datetimes
+Time axis classification: mixed_relative_and_absolute
+Earliest timestamp: 00:00:00.467
+Latest timestamp: 2026-05-31T10:00:18
+POS alignment note: NOT on a single time axis. Regenerate events with one format and anchor to POS.
+Timestamp kind counts:
+  absolute_iso_datetime: 64
+  relative_video_offset: 32
+Sample timestamps:
+  - 2026-05-31T10:00:00
+  - 2026-05-31T10:00:00
+  - 2026-05-31T10:00:02
+  - 2026-05-31T10:00:02
+  - 2026-05-31T10:00:02
+
+First 20 events:
+  {"visitor_id": 1, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "GoodVibes", "timestamp": "2026-05-31T10:00:00"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "SR", "timestamp": "2026-05-31T10:00:00"}
+  {"visitor_id": 5, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "GoodVibes", "timestamp": "2026-05-31T10:00:02"}
+  {"visitor_id": 1, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "GoodVibes", "timestamp": "2026-05-31T10:00:02"}
+  {"visitor_id": 1, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "GoodVibes", "dwell_seconds": 2.3, "timestamp": "2026-05-31T10:00:02"}
+  {"visitor_id": 1, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "DermaComp", "timestamp": "2026-05-31T10:00:02"}
+  {"visitor_id": 6, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Dhoni", "timestamp": "2026-05-31T10:00:02"}
+  {"visitor_id": 5, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "GoodVibes", "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 5, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "GoodVibes", "dwell_seconds": 1.0, "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 8, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Dhoni", "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "SR", "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "SR", "dwell_seconds": 3.5, "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "AquaLoc", "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 1, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "DermaComp", "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 1, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "DermaComp", "dwell_seconds": 1.2, "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 6, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Dhoni", "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 6, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Dhoni", "dwell_seconds": 1.0, "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 8, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Dhoni", "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 8, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Dhoni", "dwell_seconds": 0.3, "timestamp": "2026-05-31T10:00:03"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "AquaLoc", "timestamp": "2026-05-31T10:00:03"}
+
+Last 20 events:
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Aquologica", "timestamp": "00:00:37.704"}
+  {"visitor_id": 1, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "GoodVibes", "timestamp": "00:00:51.718"}
+  {"visitor_id": 1, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "GoodVibes", "dwell_seconds": 20.0, "timestamp": "00:00:51.718"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Aquologica", "timestamp": "00:01:05.732"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Aquologica", "dwell_seconds": 28.0, "timestamp": "00:01:05.732"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Pilgrim", "timestamp": "00:01:05.732"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Pilgrim", "timestamp": "00:01:47.107"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Pilgrim", "dwell_seconds": 41.4, "timestamp": "00:01:47.107"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Aquologica", "timestamp": "00:01:47.107"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Aquologica", "timestamp": "00:02:05.125"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Aquologica", "dwell_seconds": 18.0, "timestamp": "00:02:05.125"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Pilgrim", "timestamp": "00:02:05.125"}
+  {"visitor_id": 1, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "DermaCo", "timestamp": "00:02:09.129"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Pilgrim", "timestamp": "00:02:13.800"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Pilgrim", "dwell_seconds": 8.7, "timestamp": "00:02:13.800"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Aquologica", "timestamp": "00:02:13.800"}
+  {"visitor_id": 1, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "DermaCo", "timestamp": "00:02:19.906"}
+  {"visitor_id": 1, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "DermaCo", "dwell_seconds": 10.8, "timestamp": "00:02:19.906"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Aquologica", "timestamp": "00:02:19.906"}
+  {"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Aquologica", "dwell_seconds": 6.1, "timestamp": "00:02:19.906"}
+
+======================================================================
+cam2_events.jsonl
+======================================================================
+Exists: True
+Event count: 42
+Parse errors: 0
+Missing timestamps: 0
+Timestamp format: HH:MM:SS.mmm (elapsed time from start of video)
+Time axis classification: relative_video_timestamps
+Earliest timestamp: 00:00:07.674
+Latest timestamp: 00:02:05.926
+POS alignment note: NOT aligned with POS absolute datetimes without a video start anchor.
+Timestamp kind counts:
+  relative_video_offset: 42
+Sample timestamps:
+  - 00:00:07.674
+  - 00:00:16.683
+  - 00:00:20.020
+  - 00:00:20.020
+  - 00:00:20.020
+
+First 20 events:
+  {"visitor_id": 4, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "MARS", "timestamp": "00:00:07.674"}
+  {"visitor_id": 12, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LAKME", "timestamp": "00:00:16.683"}
+  {"visitor_id": 4, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "MARS", "timestamp": "00:00:20.020"}
+  {"visitor_id": 4, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "MARS", "dwell_seconds": 12.3, "timestamp": "00:00:20.020"}
+  {"visitor_id": 4, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "FACESCANADA", "timestamp": "00:00:20.020"}
+  {"visitor_id": 12, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:00:36.036"}
+  {"visitor_id": 12, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 19.4, "timestamp": "00:00:36.036"}
+  {"visitor_id": 12, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "FACESCANADA", "timestamp": "00:00:36.036"}
+  {"visitor_id": 6, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LAKME", "timestamp": "00:00:37.704"}
+  {"visitor_id": 12, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "FACESCANADA", "timestamp": "00:00:50.384"}
+  {"visitor_id": 12, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "FACESCANADA", "dwell_seconds": 14.3, "timestamp": "00:00:50.384"}
+  {"visitor_id": 6, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:00:51.051"}
+  {"visitor_id": 6, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 13.3, "timestamp": "00:00:51.051"}
+  {"visitor_id": 4, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "FACESCANADA", "timestamp": "00:00:56.390"}
+  {"visitor_id": 4, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "FACESCANADA", "dwell_seconds": 36.4, "timestamp": "00:00:56.390"}
+  {"visitor_id": 19, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LAKME", "timestamp": "00:00:59.059"}
+  {"visitor_id": 23, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "swiss Beauty", "timestamp": "00:01:06.400"}
+  {"visitor_id": 24, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "MARS", "timestamp": "00:01:07.401"}
+  {"visitor_id": 19, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:01:14.408"}
+  {"visitor_id": 19, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 15.3, "timestamp": "00:01:14.408"}
+
+Last 20 events:
+  {"visitor_id": 23, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "swiss Beauty", "dwell_seconds": 23.7, "timestamp": "00:01:30.090"}
+  {"visitor_id": 32, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "swiss Beauty", "timestamp": "00:01:31.425"}
+  {"visitor_id": 32, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "swiss Beauty", "timestamp": "00:01:48.442"}
+  {"visitor_id": 32, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "swiss Beauty", "dwell_seconds": 17.0, "timestamp": "00:01:48.442"}
+  {"visitor_id": 23, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LAKME", "timestamp": "00:01:51.445"}
+  {"visitor_id": 24, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "MARS", "timestamp": "00:01:52.446"}
+  {"visitor_id": 24, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "MARS", "dwell_seconds": 45.0, "timestamp": "00:01:52.446"}
+  {"visitor_id": 24, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LOREAL", "timestamp": "00:01:52.446"}
+  {"visitor_id": 6, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:01:52.779"}
+  {"visitor_id": 6, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 24.7, "timestamp": "00:01:52.779"}
+  {"visitor_id": 6, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LAKME", "timestamp": "00:01:59.119"}
+  {"visitor_id": 35, "camera": "CAM2", "event_type": "ZONE_ENTER", "zone": "LOREAL", "timestamp": "00:01:59.453"}
+  {"visitor_id": 35, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LOREAL", "timestamp": "00:02:01.455"}
+  {"visitor_id": 35, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LOREAL", "dwell_seconds": 2.0, "timestamp": "00:02:01.455"}
+  {"visitor_id": 6, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:02:04.458"}
+  {"visitor_id": 6, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 5.3, "timestamp": "00:02:04.458"}
+  {"visitor_id": 24, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LOREAL", "timestamp": "00:02:05.926"}
+  {"visitor_id": 24, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LOREAL", "dwell_seconds": 13.5, "timestamp": "00:02:05.926"}
+  {"visitor_id": 23, "camera": "CAM2", "event_type": "ZONE_EXIT", "zone": "LAKME", "timestamp": "00:02:05.926"}
+  {"visitor_id": 23, "camera": "CAM2", "event_type": "DWELL_COMPLETED", "zone": "LAKME", "dwell_seconds": 14.5, "timestamp": "00:02:05.926"}
+
+======================================================================
+cam3_events.jsonl
+======================================================================
+Exists: False
+Event count: 0
+Parse errors: 0
+Missing timestamps: 0
+Note: Run the corresponding events script to generate this file.
+
+======================================================================
+cam5_events.jsonl
+======================================================================
+Exists: True
+Event count: 0
+Parse errors: 0
+Missing timestamps: 0
+Note: No CCTV events to match against POS.
+
+======================================================================
+CROSS-FILE SUMMARY
+======================================================================
+
+POS transactions use absolute datetimes, e.g.:
+  2026-04-10 16:55:36 (from aggregated_transactions.json)
+
+CCTV event files:
+  cam1_events.jsonl: 96 events | axis=mixed_relative_and_absolute
+  cam2_events.jsonl: 42 events | axis=relative_video_timestamps
+  cam3_events.jsonl: 0 events | axis=missing
+  cam5_events.jsonl: 0 events | axis=empty
+
+Recommendation before purchase matching:
+  1. Regenerate cam1_events.jsonl if it still uses placeholder ISO datetimes instead of video offsets (HH:MM:SS.mmm).
+  2. Use one shared anchor to map video offsets to store local time (recording start datetime per camera).
+  3. cam3_events.jsonl and cam5_events.jsonl must be populated by running their event scripts on the same footage day as the POS export.
+  4. Only match POS rows when CCTV timestamps are converted to the same absolute datetime axis as POS transaction_datetime.

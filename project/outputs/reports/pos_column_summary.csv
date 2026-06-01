@@ -1,0 +1,40 @@
+column,dtype,missing_count,missing_pct,unique_count,sample_values
+order_id,int64,0,0.0,24,104363838; 104377545; 104362899; 104373042; 104375288
+coupon_code,str,98,97.03,1,MAR2620
+offer_name,str,28,27.72,9,Buy 2 Get 1 on PB; Buy 2 Get 2 on Sheet Mask; Buy 2 Get 1 Faces and Ny bae; FLAT 40% OFF ON NON USM- 1; Buy 1 @ 10% foxtale Event
+discount_code,str,98,97.03,1,MAR2620
+invoice_number,str,0,0.0,24,ML0426KAP0001358; ML0426KAP0001399; ML0426KAP0001353; ML0426KAP0001384; ML0426KAP0001393
+invoice_type,str,0,0.0,1,sales
+order_date,str,0,0.0,1,10-04-2026
+order_time,str,0,0.0,24,16:55:36; 19:21:55; 16:45:32; 18:41:51; 19:02:09
+return_id,float64,101,100.0,0,
+store_id,str,0,0.0,1,ST1008
+store_name,str,0,0.0,1,Brigade_Bangalore
+city,str,0,0.0,1,Bangalore
+customer_name,str,0,0.0,19,Guest ; sagar ; Nivya Sara; rupa ; madeeha thaseeb
+customer_number,int64,0,0.0,21,9346413680; 9986216644; 9900244874; 9188142680; 9972974352
+sku,str,0,0.0,83,PPLBDD8904362534994NM2; PPLB1252GV559NM4; PPLBFC8903380039689; PPLB8809783326718; PPLB383FC203NV
+product_id,int64,0,0.0,83,402813; 363342; 399314; 368410; 402546
+ean,float64,0,0.0,18,8904360000000.0; 8903380000000.0; 8809780000000.0; 9083000000000.0; 9683370000000.0
+product_name,str,0,0.0,83,DERMDOC ExfoliGlow Body Wash with 2% Lactic Acid (AHA) & 1% Salicylic Acid (BHA) | Gently Exfoliates | Clears Clogged Pores | Removes Dead Skin | Fades Dark Spots | Hydrates | Smoothens Texture | Brightens & Refreshes Skin 250 ml; Good Vibes Brightening Sheet Mask - Rice (20 ml); FACES CANADA 3 in 1 Flawless Matte Concealer - Caramel  8 gm | Full Coverage | Long Lasting | Hydrating Concealer for Dark Circles  Dark Spots & Blemishes | Brightens Under Eyes | Lightweight & Blendable; Round Lab Pine Calming Cica Toner (250 ml) | Korean Skin Care; FACES CANADA Comfy Matte Pro Liquid Lipstick - Revival Maroon 14  5.5 ml | 10HR Longstay | Intense Color | Macadamia Oil & Olive Butter Infused | Lightweight Super Smooth | No Dryness | No Alcohol
+brand_name,str,0,0.0,22,DERMDOC; Good Vibes; Faces Canada; Round Lab; Purplle
+dep_name,str,0,0.0,6,bath-and-body; skin; makeup; personal-care; hair
+sub_category,str,0,0.0,41,Body Wash & Shower Gel; Sheet Mask; Concealer and Colour Corrector; Toner; Lipstick
+brand_type,str,0,0.0,14,PB; Exclusive; Cuffs N Lashes; Renee; L'Oreal
+tax,int64,0,0.0,2,18; 5
+hsn_code,int64,0,0.0,18,33049990; 33049910; 33041000; 42022210; 42022290
+salesperson_id,int64,0,0.0,6,1178; 971; 523; 737; 1190
+employee_code,str,7,6.93,5,CL2063; CL2727; CL1997; CL2541; CL2680
+salesperson_name,str,7,6.93,5,kasthuri v; Zufishan Khazra; Shashikala .; Naziya Begum; Priya v
+qty,int64,0,0.0,4,1; 2; 4; 7
+GMV,int64,0,0.0,45,400; 198; 799; 1799; 699
+NMV,float64,0,0.0,70,274.36; 99.0; 553.17; 1799.0; 466.67
+coupon_amount,float64,0,0.0,4,0.0; 350.82; 0.2; 149.01
+item_promotion,float64,0,0.0,60,125.64; 99.0; 245.83; 0.0; 232.33
+amt_without_gwp,float64,0,0.0,71,274.36; 99.0; 553.17; 1448.18; 466.67
+total_amount,float64,0,0.0,71,274.36; 99.0; 553.17; 1448.18; 466.67
+pb_eb_sale,float64,0,0.0,55,274.36; 99.0; 553.17; 1799.0; 466.67
+week_assigned,float64,101,100.0,0,
+tax_m,float64,0,0.0,2,1.18; 1.05
+taxable_amt,float64,0,0.0,72,232.51; 83.9; 468.79; 1227.27; 395.48
+tax_amt,float64,0,0.0,72,41.85000000000002; 15.099999999999994; 84.37999999999994; 220.91000000000008; 71.19

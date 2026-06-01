@@ -1,0 +1,24 @@
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Pilgrim", "timestamp": "00:00:09.009", "event_datetime": "2026-04-10T20:10:36.009"}
+{"visitor_id": 1, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "GoodVibes", "timestamp": "00:00:31.698", "event_datetime": "2026-04-10T20:10:58.698"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Pilgrim", "timestamp": "00:00:37.704", "event_datetime": "2026-04-10T20:11:04.704"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Pilgrim", "dwell_seconds": 28.7, "timestamp": "00:00:37.704", "event_datetime": "2026-04-10T20:11:04.704"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Aquologica", "timestamp": "00:00:37.704", "event_datetime": "2026-04-10T20:11:04.704"}
+{"visitor_id": 1, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "GoodVibes", "timestamp": "00:00:51.718", "event_datetime": "2026-04-10T20:11:18.718"}
+{"visitor_id": 1, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "GoodVibes", "dwell_seconds": 20.0, "timestamp": "00:00:51.718", "event_datetime": "2026-04-10T20:11:18.718"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Aquologica", "timestamp": "00:01:05.732", "event_datetime": "2026-04-10T20:11:32.732"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Aquologica", "dwell_seconds": 28.0, "timestamp": "00:01:05.732", "event_datetime": "2026-04-10T20:11:32.732"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Pilgrim", "timestamp": "00:01:05.732", "event_datetime": "2026-04-10T20:11:32.732"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Pilgrim", "timestamp": "00:01:47.107", "event_datetime": "2026-04-10T20:12:14.107"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Pilgrim", "dwell_seconds": 41.4, "timestamp": "00:01:47.107", "event_datetime": "2026-04-10T20:12:14.107"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Aquologica", "timestamp": "00:01:47.107", "event_datetime": "2026-04-10T20:12:14.107"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Aquologica", "timestamp": "00:02:05.125", "event_datetime": "2026-04-10T20:12:32.125"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Aquologica", "dwell_seconds": 18.0, "timestamp": "00:02:05.125", "event_datetime": "2026-04-10T20:12:32.125"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Pilgrim", "timestamp": "00:02:05.125", "event_datetime": "2026-04-10T20:12:32.125"}
+{"visitor_id": 1, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "DermaCo", "timestamp": "00:02:09.129", "event_datetime": "2026-04-10T20:12:36.129"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Pilgrim", "timestamp": "00:02:13.800", "event_datetime": "2026-04-10T20:12:40.800"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Pilgrim", "dwell_seconds": 8.7, "timestamp": "00:02:13.800", "event_datetime": "2026-04-10T20:12:40.800"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Aquologica", "timestamp": "00:02:13.800", "event_datetime": "2026-04-10T20:12:40.800"}
+{"visitor_id": 1, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "DermaCo", "timestamp": "00:02:19.906", "event_datetime": "2026-04-10T20:12:46.906"}
+{"visitor_id": 1, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "DermaCo", "dwell_seconds": 10.8, "timestamp": "00:02:19.906", "event_datetime": "2026-04-10T20:12:46.906"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Aquologica", "timestamp": "00:02:19.906", "event_datetime": "2026-04-10T20:12:46.906"}
+{"visitor_id": 2, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Aquologica", "dwell_seconds": 6.1, "timestamp": "00:02:19.906", "event_datetime": "2026-04-10T20:12:46.906"}

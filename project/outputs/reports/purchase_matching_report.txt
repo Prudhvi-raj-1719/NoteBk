@@ -1,0 +1,51 @@
+PURCHASE MATCHING REPORT
+
+Engine: purchase_matching.py
+Match window: transaction_datetime +/- 5 minutes
+
+Inputs:
+  - aggregated_transactions.json
+  - cam1_events_normalized.jsonl
+  - cam2_events_normalized.jsonl
+  - cam5_events_normalized.jsonl
+
+Event file notes:
+  cam1_events_normalized.jsonl: 24 events
+  cam2_events_normalized.jsonl: 42 events
+  cam5_events_normalized.jsonl: missing (0 events)
+
+Total invoices: 24
+Matched invoices: 0
+Unmatched invoices: 24
+Average confidence (matched only): N/A (no matches)
+
+Matched invoice numbers:
+  (none)
+
+Unmatched invoice numbers:
+  - ML0426KAP0001321 (No CCTV events in time window)
+  - ML0426KAP0001324 (No CCTV events in time window)
+  - ML0426KAP0001333 (No CCTV events in time window)
+  - ML0426KAP0001336 (No CCTV events in time window)
+  - ML0426KAP0001337 (No CCTV events in time window)
+  - ML0426KAP0001340 (No CCTV events in time window)
+  - ML0426KAP0001346 (No CCTV events in time window)
+  - ML0426KAP0001347 (No CCTV events in time window)
+  - ML0426KAP0001348 (No CCTV events in time window)
+  - ML0426KAP0001353 (No CCTV events in time window)
+  - ML0426KAP0001358 (No CCTV events in time window)
+  - ML0426KAP0001366 (No CCTV events in time window)
+  - ML0426KAP0001369 (No CCTV events in time window)
+  - ML0426KAP0001372 (No CCTV events in time window)
+  - ML0426KAP0001374 (No CCTV events in time window)
+  - ML0426KAP0001384 (No CCTV events in time window)
+  - ML0426KAP0001393 (No CCTV events in time window)
+  - ML0426KAP0001399 (No CCTV events in time window)
+  - ML0426KAP0001401 (No CCTV events in time window)
+  - ML0426KAP0001403 (No CCTV events in time window)
+  - ML0426KAP0001408 (No CCTV events in time window)
+  - ML0426KAP0001418 (No CCTV events in time window)
+  - ML0426KAP0001438 (No CCTV events in time window)
+  - ML0426KAP0001443 (No CCTV events in time window)
+
+Output JSON: purchase_matches.json

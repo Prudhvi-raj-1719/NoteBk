@@ -1,0 +1,74 @@
+EVENT TIME NORMALIZATION REPORT
+
+Method: video offset (HH:MM:SS.mmm) + CAMERA_START_TIMES
+Config: camera_timing_config.py (single source of truth)
+OCR: not used
+
+CAMERA_START_TIMES:
+  CAM1: 2026-04-10 20:10:27
+  CAM2: 2026-04-10 20:10:02
+  CAM5: 2026-04-10 20:09:48
+
+Required event_datetime date: 2026-04-10
+Skipped rewrite: CAM2
+
+======================================================================
+CAM1
+======================================================================
+Input: E:\NOTEBK\cam1_events.jsonl
+Output: E:\NOTEBK\cam1_events_normalized.jsonl
+Anchor: 2026-04-10 20:10:27
+Normalize: completed
+Recording window: 2026-04-10T20:10:27.000 to 2026-04-10T20:12:46.906
+Events processed: 24
+Events written: 24
+Offset converted: 24
+First event_datetime: 2026-04-10T20:10:36.009
+Last event_datetime: 2026-04-10T20:12:46.906
+Invalid timestamps: 0
+Skipped records: 0
+JSON parse errors (input lines): 0
+event_datetime not on 2026-04-10: 0
+Recording window validation failures: 0
+
+======================================================================
+CAM2
+======================================================================
+Input: E:\NOTEBK\cam2_events.jsonl
+Output: E:\NOTEBK\cam2_events_normalized.jsonl
+Anchor: 2026-04-10 20:10:02
+Normalize: SKIPPED (already normalized (rewrite skipped))
+Recording window: 2026-04-10T20:10:02.000 to 2026-04-10T20:12:07.925
+Events processed: 42
+Events written: 42
+Offset converted: 0
+First event_datetime: 2026-04-10T20:10:09.674
+Last event_datetime: 2026-04-10T20:12:07.926
+Invalid timestamps: 0
+Skipped records: 0
+JSON parse errors (input lines): 0
+event_datetime not on 2026-04-10: 0
+Recording window validation failures: 0
+
+======================================================================
+CAM5
+======================================================================
+Input: E:\NOTEBK\cam5_events.jsonl
+Output: E:\NOTEBK\cam5_events_normalized.jsonl
+Anchor: 2026-04-10 20:09:48
+Normalize: SKIPPED (no events in file)
+Events processed: 0
+Events written: 0
+Offset converted: 0
+First event_datetime: None
+Last event_datetime: None
+Invalid timestamps: 0
+Skipped records: 0
+JSON parse errors (input lines): 0
+event_datetime not on 2026-04-10: 0
+Recording window validation failures: 0
+
+Global date check (2026-04-10): PASS
+
+CAM3: not in pipeline (no cam3_events.jsonl)
+Purchase matching: not built

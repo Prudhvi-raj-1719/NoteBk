@@ -1,0 +1,562 @@
+[
+  {
+    "invoice_number": "ML0426KAP0001321",
+    "order_id": 104338647,
+    "transaction_datetime": "2026-04-10 12:15:05",
+    "customer_number": 7483373325,
+    "salesperson_name": "kasthuri v",
+    "product_names": [
+      "FACES CANADA Beyond Shine Lip Gloss - Gleam Dream 11 | Lightweight Non-Sticky Luxurious Texture For Glossy Lips | Shimmer Finish | Instant Shine | Fuller  Supple & Plump Lips | 24 - HR Hydration - 3.8 ml",
+      "FACES CANADA Strobe Cream - Rose Gold  30 ml | With Shea Butter & Hyaluronic Acid | Intense Hydration | Dewy Skin | Illuminating & Glowing Makeup Base",
+      "FACES CANADA Ultime Pro Makeup Fixer 100 ml | Long Lasting Makeup Setting Spray | Keeps Makeup Intact | Hydrates Soothes & Refreshes Skin"
+    ],
+    "brand_names": [
+      "Faces Canada"
+    ],
+    "categories": [
+      "makeup"
+    ],
+    "total_quantity": 3,
+    "total_amount": 1247.98
+  },
+  {
+    "invoice_number": "ML0426KAP0001324",
+    "order_id": 104341290,
+    "transaction_datetime": "2026-04-10 12:42:18",
+    "customer_number": 9611400437,
+    "salesperson_name": "Zufishan Khazra",
+    "product_names": [
+      "FACES CANADA 3 in 1 Flawless Matte Concealer - Caramel  8 gm | Full Coverage | Long Lasting | Hydrating Concealer for Dark Circles  Dark Spots & Blemishes | Brightens Under Eyes | Lightweight & Blendable",
+      "FACES CANADA Beyond Shine Lip Gloss - Gleam Dream 11 | Lightweight Non-Sticky Luxurious Texture For Glossy Lips | Shimmer Finish | Instant Shine | Fuller  Supple & Plump Lips | 24 - HR Hydration - 3.8 ml",
+      "FACES CANADA Fresh Clean Glow Makeup Remover Wipes - 30 Wipes | Gentle Purifying | Ultra Soft | Instant Cleansing For All Skin Types | Hydrates & Moisturizes Skin | No Alcohol | No Parabens",
+      "FACES CANADA Magneteyes Volume Xtreme Mascara - Black  8 gm | Lengthens Lashes | Waterproof | Quick Drying | Long Wear | Intense Black Finish | Lightweight | Enriched With Jojoba Oil & Vitamin E",
+      "FACES CANADA Setting and Finishing Loose Powder  10 gm | Sheer Coverage & Naturally Radiant Finish | Non- Drying & Lightweight | Evens Out Skin Tone | Soft Focus Effect | Blurs Imperfections",
+      "FACES CANADA Ultime Pro HD Intense Matte Lipstick + Primer - Bloodmoon  1.4 gm | 9HR Long Stay | Feather-Light Comfort | Intense Color | Smooth Glide",
+      "FACES CANADA Ultime Pro HD Intense Matte Lipstick + Primer - Scandalous  1.4 gm | 9HR Long Stay | Feather-Light Comfort | Intense Color | Smooth Glide",
+      "FACES CANADA Ultime Pro Hd Runway Ready Foundation - Warm Sand 06  30 ml | Dewy Finish | Glass Skin Effect | Luxurious Formula | Lightweight & Breathable | Silky Smooth Texture | No Dryness or Oiliness | Vitamin E & Hyaluronic Acid",
+      "FACES CANADA Ultime Pro Lip Definer - Maroon 0.35 gm | Extremely Soft & Gliding | Anti-Feathering & Lightwear | High Coverage | Waterproof | Retractable Twist Format",
+      "FACES CANADA Ultime Pro Lip Definer - Mocha Brown 13 0.35 gm | Rich & Creamy Texture | Matte Finish | Fuller & Brighter Lips | Easily Blendable | Highly Pigmented | Waterproof & Smudgeproof",
+      "FACES CANADA Ultime Pro Primerizer Primer + Moisturizer  30 gm | Skin Perfecting & Hydrating Face Primer | Flawless Look | Minimizes Pores & Fine Lines | Shea Butter  Vitamin E  Antioxidants Enriched",
+      "FACES CANADA Ultime Pro Shimmer Makeup Fixer  100 ml | Long Lasting Makeup Setting Spray | Keeps Makeup Intact | Glamourous Shimmer Finish | Hydrates  Soothes & Refreshes Skin | Alcohol Free",
+      "FACES CANADA Ultime Pro Splash Luxe Nail Enamel - Opal Bloom (L34)  12 ml | Glossy Finish | Quick Drying | Long Lasting | High Shine | Chip Defiant | Even-Finish | Vegan | Non-Toxic | Ethanol-Free",
+      "FoxTale CoverUp SPFA 70 PA++ Dewy Sunscreen Cream - 50 ml",
+      "GUBB Cotton Pads for Face Cleansing & Makeup Removal  Embossed - 100 Pads",
+      "Garnier Skin Naturals Micellar Cleansing Water  125 ml - Waterproof Makeup Remover For All Skin Types",
+      "Good Vibes Activated Charcoal Deep Cleansing Sheet Mask | Detoxifying  | Cleanses Dirt & Impurities (20 gm)",
+      "Good Vibes Brightening Sheet Mask - Rice (20 ml)",
+      "Good Vibes Coffee Brightening Sheet Mask | Nourishing  Softening | Vegan  No Parabens  No Sulphates  No Mineral  No Animal Testing (20 gm)",
+      "Good Vibes Saffron Natural Glow Sheet Mask | For Glowing & Smooth Skin | Fights Signs Of Ageing  Treats Rough & Dull Skin (20 gm)",
+      "Lotus HerbalsA Safe Sun 3 In 1A Daily SunscreenA | Matte Look | SPF 40 | PA+++ | For All Skin Types | 100 gm",
+      "Purplle Carry Bag Small 1.0 Festival Carry Bag 3 gm",
+      "Purplle GWP JFM 26 Set of Two Shimmer Pouch 1 pc",
+      "RENEE Lip Fix Lip Balm 03 Mimosa  Heals  Lightens & Nourishes  Dual Core Care Enriched with Vitamin E  Shea Butter & Jojoba Oil for Dry & Chapped Dry Lips  1.6 gm"
+    ],
+    "brand_names": [
+      "Faces Canada",
+      "Foxtale",
+      "GUBB",
+      "Garnier",
+      "Good Vibes",
+      "Lotus Herbals",
+      "Purplle",
+      "Renee"
+    ],
+    "categories": [
+      "bath-and-body",
+      "makeup",
+      "personal-care",
+      "skin"
+    ],
+    "total_quantity": 33,
+    "total_amount": 8243.23
+  },
+  {
+    "invoice_number": "ML0426KAP0001333",
+    "order_id": 104346717,
+    "transaction_datetime": "2026-04-10 13:41:55",
+    "customer_number": 9902843091,
+    "salesperson_name": "Shashikala .",
+    "product_names": [
+      "Good Vibes Brightening Sheet Mask - Rice (20 ml)",
+      "Good Vibes Gold Skin Radiance Sheet Mask | Anti-Ageing  Moisturizing | Vegan  No Parabens  No Sulphates  No Mineral Oil  No Animal Testing (20 gm)",
+      "Good Vibes Pearl Illuminating Sheet Mask | For Bright & Glowing Skin | Suitable For All Skin Types (20 gm)",
+      "Good Vibes Saffron Natural Glow Sheet Mask | For Glowing & Smooth Skin | Fights Signs Of Ageing  Treats Rough & Dull Skin (20 gm)"
+    ],
+    "brand_names": [
+      "Good Vibes"
+    ],
+    "categories": [
+      "skin"
+    ],
+    "total_quantity": 4,
+    "total_amount": 198.0
+  },
+  {
+    "invoice_number": "ML0426KAP0001336",
+    "order_id": 104347785,
+    "transaction_datetime": "2026-04-10 13:55:16",
+    "customer_number": 9880557837,
+    "salesperson_name": "nan",
+    "product_names": [
+      "Carmesi Women's Facial Hair Removal Combo | Pack of 1 Facial Razor & 1 Eyebrow Razor | Instant & Painless Hair Removal | Eyebrows  Upper Lip  Peach Fuzz  Sideburn  Forehead",
+      "Purplle Carry Bag Small 1.0 -1 cartoon = 250 qty. - 3 gm"
+    ],
+    "brand_names": [
+      "Carmesi",
+      "Purplle"
+    ],
+    "categories": [
+      "bath-and-body",
+      "personal-care"
+    ],
+    "total_quantity": 2,
+    "total_amount": 199.0
+  },
+  {
+    "invoice_number": "ML0426KAP0001337",
+    "order_id": 104350137,
+    "transaction_datetime": "2026-04-10 14:23:21",
+    "customer_number": 9620836012,
+    "salesperson_name": "Shashikala .",
+    "product_names": [
+      "Faces Canada Fresh Eyes Kajal | 24Hr Stay | Waterproof | Comfortable & Lightweight | Enriched With Rose Extract 0.35 gm"
+    ],
+    "brand_names": [
+      "Faces Canada"
+    ],
+    "categories": [
+      "makeup"
+    ],
+    "total_quantity": 1,
+    "total_amount": 225.0
+  },
+  {
+    "invoice_number": "ML0426KAP0001340",
+    "order_id": 104353598,
+    "transaction_datetime": "2026-04-10 15:02:20",
+    "customer_number": 7997037608,
+    "salesperson_name": "Priya v",
+    "product_names": [
+      "DERMDOC 4% Niacinamide Day Cream (50 gm) | Light Gel Moisturizer | Ultra LightweightA Gel-Based Texture | Oily Skin Friendly | Glow Boosting & Skin Brightening | Face Cream",
+      "DERMDOC by Purplle 2% Kojic Acid Glow Fusion Formula Night Cream with Niacinamide & Alpha Arbutin for Skin Brightening (50 gm) | Skin Brightening Face Cream I Night Cream I Kojic Acid Brightening Cream I Glowing Skin",
+      "DERMDOC by Purplle 20% Urea Foot Cream (100 gm) | cream for cracked heels | foot crack cream | dry heels | crack repair cream | large pack size"
+    ],
+    "brand_names": [
+      "DERMDOC"
+    ],
+    "categories": [
+      "personal-care",
+      "skin"
+    ],
+    "total_quantity": 3,
+    "total_amount": 814.98
+  },
+  {
+    "invoice_number": "ML0426KAP0001346",
+    "order_id": 104357849,
+    "transaction_datetime": "2026-04-10 15:46:39",
+    "customer_number": 1000000000,
+    "salesperson_name": "kasthuri v",
+    "product_names": [
+      "FACES CANADA Ultime Pro A Matte Made in Heaven Ink Eyeliner - Black  1.2 ml | Fine Tip Precision | 24HR Long Stay | Waterproof  Smudgeproof & Transferproof"
+    ],
+    "brand_names": [
+      "Faces Canada"
+    ],
+    "categories": [
+      "makeup"
+    ],
+    "total_quantity": 1,
+    "total_amount": 599.0
+  },
+  {
+    "invoice_number": "ML0426KAP0001347",
+    "order_id": 104358212,
+    "transaction_datetime": "2026-04-10 15:50:44",
+    "customer_number": 8105575833,
+    "salesperson_name": "Zufishan Khazra",
+    "product_names": [
+      "Juicy Chemistry Organic Lip Balm with Vanilla Bean  5 gm | Deeply Moisturising & Nourishing Lip Care | Supports Healthy Lip Barrier | For Dry & Sensitive Lips | Dermatologically Tested | Cruelty Free & Veg",
+      "Purplle Carry Bag Small 1.0 -1 cartoon = 250 qty. - 3 gm"
+    ],
+    "brand_names": [
+      "Juicy Chemistry",
+      "Purplle"
+    ],
+    "categories": [
+      "bath-and-body",
+      "skin"
+    ],
+    "total_quantity": 2,
+    "total_amount": 400.0
+  },
+  {
+    "invoice_number": "ML0426KAP0001348",
+    "order_id": 104359750,
+    "transaction_datetime": "2026-04-10 16:08:03",
+    "customer_number": 9043344727,
+    "salesperson_name": "Shashikala .",
+    "product_names": [
+      "Maybelline New York Instant Age Rewind Eraser Concealer - Conceal  Contour  142 Butterscotch 6 gm"
+    ],
+    "brand_names": [
+      "Maybelline"
+    ],
+    "categories": [
+      "makeup"
+    ],
+    "total_quantity": 1,
+    "total_amount": 799.0
+  },
+  {
+    "invoice_number": "ML0426KAP0001353",
+    "order_id": 104362899,
+    "transaction_datetime": "2026-04-10 16:45:32",
+    "customer_number": 9900244874,
+    "salesperson_name": "Zufishan Khazra",
+    "product_names": [
+      "Beauty of Joseon Revive Eye Serum: Ginseng + Retinal 30 ml",
+      "FACES CANADA 3 in 1 Flawless Matte Concealer - Caramel  8 gm | Full Coverage | Long Lasting | Hydrating Concealer for Dark Circles  Dark Spots & Blemishes | Brightens Under Eyes | Lightweight & Blendable",
+      "FACES CANADA 3 in 1 HD Matte Compact - Total Beige 03  8 gm | Compact + Foundation + Hydration | 8-Hour Stay | Soft Weightless Texture & Silky Coverage | Blends Easily",
+      "FACES CANADA Flawless Matte Foundation - Warm Sand 042  30 ml | 3-in-1 Foundation + Moisturizer + Concealer | 12 HR Hydration + SPF 18 | Full HD Matte Coverage | Lightweight | Anti Ageing",
+      "Purplle Carry Bag Small 1.0 -1 cartoon = 250 qty. - 3 gm",
+      "Purplle Makeup Pouch JAS 25 - 40 gm"
+    ],
+    "brand_names": [
+      "Beauty of Joseon",
+      "Faces Canada",
+      "Purplle"
+    ],
+    "categories": [
+      "bath-and-body",
+      "makeup",
+      "skin"
+    ],
+    "total_quantity": 6,
+    "total_amount": 3076.98
+  },
+  {
+    "invoice_number": "ML0426KAP0001358",
+    "order_id": 104363838,
+    "transaction_datetime": "2026-04-10 16:55:36",
+    "customer_number": 9346413680,
+    "salesperson_name": "kasthuri v",
+    "product_names": [
+      "Alps Goodness Fenugreek Biotin & Redensyl Anti Hairfall Shampoo (290 ml) | Methi Hairloss Control Shampoo For All Hair Types | Sulphate  Silicone & Paraben Free | Gentle & Mild Cleansing Shampoo| Vegan",
+      "Alps Goodness Flaxseed Gel (300 ml) | For Hair & Skin | Frizz-Control | Smoothening | Moisture Rich | Soft Long Hair",
+      "Alps Goodness Rosemary Water (200 ml) | Rosemary water for hair | Hair Spray for Regrowth | Hair Growth Expert | Hair Growth Serum | Viral Rinse | Saver Pack",
+      "Carmesi Natural Deodorant Roll-on - Sweet Summer 50 ml",
+      "DERMDOC 4% Niacinamide Ultra Violet Brightening Sunscreen with SPF 50 PA+++ Sun Protection (60 gm) | Sunblock | Sunscreen for Oily Skin | UV Protection | With Shine Formula | Purple Tinted Sunscreen",
+      "DERMDOC ExfoliGlow Body Wash with 2% Lactic Acid (AHA) & 1% Salicylic Acid (BHA) | Gently Exfoliates | Clears Clogged Pores | Removes Dead Skin | Fades Dark Spots | Hydrates | Smoothens Texture | Brightens & Refreshes Skin 250 ml",
+      "DERMDOC by Purplle 5% Glycolic Acid Under Arm Treatment (100ml) | whitening underarms  darkened underarms  underarm lightening treatment  dark underarm spray  glycolic acid for skin lightening | hyperpigmentation under arms",
+      "Juicy Chemistry Organic Lip Scrub with Blood Orange & Rosehip  10 gm | 100% Natural Exfoliating Lip Care | Brightens & Evens Lip Tone | Reduces Pigmentation | Dermatologically Tested | Certified Organic & Cruelty-Free"
+    ],
+    "brand_names": [
+      "Alps Goodness",
+      "Carmesi",
+      "DERMDOC",
+      "Juicy Chemistry"
+    ],
+    "categories": [
+      "bath-and-body",
+      "fragrance",
+      "hair",
+      "skin"
+    ],
+    "total_quantity": 8,
+    "total_amount": 2048.97
+  },
+  {
+    "invoice_number": "ML0426KAP0001366",
+    "order_id": 104368521,
+    "transaction_datetime": "2026-04-10 17:44:44",
+    "customer_number": 9961180216,
+    "salesperson_name": "Zufishan Khazra",
+    "product_names": [
+      "NY Bae Velvet Mousse Liquid Lipstick - Badass Berry 02 (6.5 ml) | Velvet Matte Finish | Transferproof | Smudgeproof | Ultra Light | Smooth | Moisturising Plum Lipstick"
+    ],
+    "brand_names": [
+      "NY Bae"
+    ],
+    "categories": [
+      "makeup"
+    ],
+    "total_quantity": 1,
+    "total_amount": 299.0
+  },
+  {
+    "invoice_number": "ML0426KAP0001369",
+    "order_id": 104369411,
+    "transaction_datetime": "2026-04-10 17:55:02",
+    "customer_number": 8310361706,
+    "salesperson_name": "Priya v",
+    "product_names": [
+      "NY Bae 2-in-1 Lip Liner Kit Pack of 6 | 6 Multi-Use Lip Pencils | Smooth Creamy Glide | Matte Non-Drying Finish | Rich Colour Payoff | Easy to Line & Fill | Long-Lasting Lip Definer & Base | Lip Contour & Lipstick Enhancer Set",
+      "NY Bae 3 IN 1 Serum Foundation - Cool Toffee 11 (30 ml) | Infused with Primer | Moisturising I Glowing Korean Skin I Celeb Glow | Dewy Makeup | Evens Skin Tone | Ultra Glow",
+      "NY Bae Dewy Creme Blush - Sweet Mauve 02 (5.5 ml) | Liquid Blush | Dewy & Bold Finish | Natural Glow | Lightweight Formula | Buildable Pigment | Everyday Makeup | Hydrating Blush | Silky & Weightless | Long-Lasting Wear",
+      "NY Bae Dewy Creme Blush – Chirpy Peach 04 (5.5 ml) | Liquid Blush | Dewy & Bold Finish | Natural Glow | Lightweight Formula | Buildable Pigment | Everyday Makeup | Hydrating Blush | Silky & Weightless | Long-Lasting Wear",
+      "NY Bae Dewy Setting Spray (60 ml) | Glowing Skin | Dewy Makeup Fixer | Long Lasting Makeup | Crease-Free | Hydrating Face Mist | Hyaluronic Acid | Normal To Dry Skin",
+      "NY Bae PRO Strobe Cream - Rose Diamond (30 gm) | Primer + Highlighter + Moisturizer | Dewy Makeup | Glowing Korean Skin | Liquid Highlighter | Intense Glow | Value Pack | Best Suited For Normal To Dry Skin"
+    ],
+    "brand_names": [
+      "NY Bae"
+    ],
+    "categories": [
+      "makeup"
+    ],
+    "total_quantity": 6,
+    "total_amount": 1495.98
+  },
+  {
+    "invoice_number": "ML0426KAP0001372",
+    "order_id": 104369867,
+    "transaction_datetime": "2026-04-10 18:00:18",
+    "customer_number": 9716299932,
+    "salesperson_name": "Shashikala .",
+    "product_names": [
+      "FACES CANADA Nail Enamel Remover - 90 ml | Enriched With Rose Oil & Vitamin E | Soft & Hydrated Cuticles | Easy To Use | Gentle Nail Polish Remover | Acetone Free | Cruelty Free"
+    ],
+    "brand_names": [
+      "Faces Canada"
+    ],
+    "categories": [
+      "makeup"
+    ],
+    "total_quantity": 1,
+    "total_amount": 149.0
+  },
+  {
+    "invoice_number": "ML0426KAP0001374",
+    "order_id": 104370397,
+    "transaction_datetime": "2026-04-10 18:07:14",
+    "customer_number": 9845021410,
+    "salesperson_name": "kasthuri v",
+    "product_names": [
+      "Lakme Makeup+Skincare Vit C Superglow Concealer 16 Sand 5.4ml",
+      "Lakme Showstopper Collection Beyond Matte Lip 202 Pink Plum 3.4 gm"
+    ],
+    "brand_names": [
+      "Lakme"
+    ],
+    "categories": [
+      "makeup"
+    ],
+    "total_quantity": 2,
+    "total_amount": 693.0
+  },
+  {
+    "invoice_number": "ML0426KAP0001384",
+    "order_id": 104373042,
+    "transaction_datetime": "2026-04-10 18:41:51",
+    "customer_number": 9188142680,
+    "salesperson_name": "Shashikala .",
+    "product_names": [
+      "Bare Anatomy Advanced Hair Growth Serum 30 ml",
+      "Purplle Makeup Pouch JAS 25 - 40 gm",
+      "Round Lab Pine Calming Cica Toner (250 ml) | Korean Skin Care"
+    ],
+    "brand_names": [
+      "Bare Anatomy",
+      "Purplle",
+      "Round Lab"
+    ],
+    "categories": [
+      "hair",
+      "makeup",
+      "skin"
+    ],
+    "total_quantity": 3,
+    "total_amount": 2064.07
+  },
+  {
+    "invoice_number": "ML0426KAP0001393",
+    "order_id": 104375288,
+    "transaction_datetime": "2026-04-10 19:02:09",
+    "customer_number": 9972974352,
+    "salesperson_name": "Naziya Begum",
+    "product_names": [
+      "FACES CANADA Comfy Matte Liquid Lipstick - Lowkey Charm 30  3.8 ml | Comfortable 10HR Longstay | Intense Matte Color | Almond Oil & Vitamin E Infused | Super Smooth | No Dryness | No Alcohol",
+      "FACES CANADA Comfy Matte Pro Liquid Lipstick - Frisky Brown 13  5.5 ml | 10HR Longstay | Intense Color | Macadamia Oil & Olive Butter Infused | Lightweight Super Smooth | No Dryness | No Alcohol",
+      "FACES CANADA Comfy Matte Pro Liquid Lipstick - Revival Maroon 14  5.5 ml | 10HR Longstay | Intense Color | Macadamia Oil & Olive Butter Infused | Lightweight Super Smooth | No Dryness | No Alcohol",
+      "FACES CANADA Magneteyes Length Xtreme Mascara - Black  8 gm | Volumizes Lashes | Waterproof | Quick Drying | Long Wear | Intense Black Finish | Lightweight | Enriched With Jojoba Oil & Vitamin E",
+      "FACES CANADA Setting and Finishing Loose Powder  10 gm | Sheer Coverage & Naturally Radiant Finish | Non- Drying & Lightweight | Evens Out Skin Tone | Soft Focus Effect | Blurs Imperfections",
+      "Purplle Carry Bag Small 1.0 -1 cartoon = 250 qty. - 3 gm"
+    ],
+    "brand_names": [
+      "Faces Canada",
+      "Purplle"
+    ],
+    "categories": [
+      "bath-and-body",
+      "makeup"
+    ],
+    "total_quantity": 7,
+    "total_amount": 2295.96
+  },
+  {
+    "invoice_number": "ML0426KAP0001399",
+    "order_id": 104377545,
+    "transaction_datetime": "2026-04-10 19:21:55",
+    "customer_number": 9986216644,
+    "salesperson_name": "Zufishan Khazra",
+    "product_names": [
+      "Cuffs N Lashes Mini Brush Set of 5 Brown",
+      "FACES CANADA Cloud Love Liquid Blush - Love Potion 03  5 ml | Soft Rosy Look | Long Lasting | Blends Easily | Blurred Matte Effect | Lightweight | Natural Tint | Cushion Applicator | Niacinamide Infused",
+      "FACES CANADA Triple Impact Makeup Remover  120 ml | With Rose Water | 3-IN-1 Cleanse  Tone & Nourish | Deep Cleanses & Removes Makeup For Eyes  Lips & Face | Bi-Phasic Formula",
+      "FACES CANADA Ultime Pro Hd Runway Ready Foundation - Soft Sand 05  30 ml | Dewy Finish | Glass Skin Effect | Luxurious Formula | Lightweight & Breathable | Silky Smooth Texture | No Dryness or Oiliness | Vitamin E & Hyaluronic Acid",
+      "FACES CANADA Ultime Pro Matte Play Eyeliner - Black  2.5 ml | Quick Dry | Matte Finish | 24 Hr Long Lasting Formula | Precise Felt Tip | Highly Pigmented | Waterproof  Smudgeproof & Sweatproof",
+      "GUBB Cotton Pads for Face Cleansing & Makeup Removal  Embossed - 100 Pads",
+      "Good Vibes Brightening Sheet Mask - Rice (20 ml)",
+      "Good Vibes Saffron Natural Glow Sheet Mask | For Glowing & Smooth Skin | Fights Signs Of Ageing  Treats Rough & Dull Skin (20 gm)",
+      "Purplle Carry Bag Medium 1.0 -1 cartoon = 250 qty - 3 gm"
+    ],
+    "brand_names": [
+      "CUFFS N LASHES",
+      "Faces Canada",
+      "GUBB",
+      "Good Vibes",
+      "Purplle"
+    ],
+    "categories": [
+      "bath-and-body",
+      "makeup",
+      "skin"
+    ],
+    "total_quantity": 11,
+    "total_amount": 3467.18
+  },
+  {
+    "invoice_number": "ML0426KAP0001401",
+    "order_id": 104378732,
+    "transaction_datetime": "2026-04-10 19:33:52",
+    "customer_number": 1000000000,
+    "salesperson_name": "Naziya Begum",
+    "product_names": [
+      "COSRX Salicylic Acid Daily Gentle Cleanser (150 ml)",
+      "Carmesi Facial Razor for Women - For Instant & Painless Hair Removal (Eyebrows  Upper Lip  Forehead  Peach Fuzz  Chin  Sideburns) - Pack of 3",
+      "NY Bae Makeup Remover Wipes - Pack of 25 | Cleansing Facial Wipes | Refreshing | Alcohol Free | Sulphate Free | Compact | Travel Friendly"
+    ],
+    "brand_names": [
+      "COSRX",
+      "Carmesi",
+      "NY Bae"
+    ],
+    "categories": [
+      "makeup",
+      "personal-care",
+      "skin"
+    ],
+    "total_quantity": 3,
+    "total_amount": 1113.0
+  },
+  {
+    "invoice_number": "ML0426KAP0001403",
+    "order_id": 104379480,
+    "transaction_datetime": "2026-04-10 19:41:29",
+    "customer_number": 8280017709,
+    "salesperson_name": "kasthuri v",
+    "product_names": [
+      "COSRX Advanced Snail 96 Mucin Power Essence - Face Serum(100 ml)",
+      "Good Vibes Brightening Sheet Mask - Rice (20 ml)",
+      "Good Vibes Pearl Illuminating Sheet Mask | For Bright & Glowing Skin | Suitable For All Skin Types (20 gm)",
+      "Good Vibes Saffron Natural Glow Sheet Mask | For Glowing & Smooth Skin | Fights Signs Of Ageing  Treats Rough & Dull Skin (20 gm)",
+      "Swiss Beauty Select Do The Duet Lipstick | Matte Liquid Lipstick + Tinted Gloss | Infused with Vitamin E and Jojoba Oil | 2 French Rose 3 ml"
+    ],
+    "brand_names": [
+      "COSRX",
+      "Good Vibes",
+      "Swiss Beauty"
+    ],
+    "categories": [
+      "makeup",
+      "skin"
+    ],
+    "total_quantity": 6,
+    "total_amount": 1953.0
+  },
+  {
+    "invoice_number": "ML0426KAP0001408",
+    "order_id": 104380754,
+    "transaction_datetime": "2026-04-10 19:54:02",
+    "customer_number": 9845789663,
+    "salesperson_name": "Priya v",
+    "product_names": [
+      "GUBB DETANGLING HAIR COMB (SANTORINI HUES) GB-LH-025",
+      "Good Vibes Brightening Sheet Mask - Rice (20 ml)",
+      "Maybelline New York Colossal Kajal Super Black  2X Darker & 2X Colossal  Matte Finish Kajal | 0.35 gm",
+      "Maybelline Superstay Vinyl Ink Liquid Lipstick  Lippy | High Shine That Lasts for 16 HRs | Enriched With Vitamin E & Aloe 4.2 ml"
+    ],
+    "brand_names": [
+      "GUBB",
+      "Good Vibes",
+      "Maybelline"
+    ],
+    "categories": [
+      "hair",
+      "makeup",
+      "skin"
+    ],
+    "total_quantity": 7,
+    "total_amount": 1354.79
+  },
+  {
+    "invoice_number": "ML0426KAP0001418",
+    "order_id": 104383803,
+    "transaction_datetime": "2026-04-10 20:25:04",
+    "customer_number": 8882631875,
+    "salesperson_name": "Zufishan Khazra",
+    "product_names": [
+      "FACES CANADA All Day Hydra Matte Foundation | 3-in-1 Foundation + Moisturizer + SPF30 | 10HR Long Wear | Buildable Coverage | Golden Beige 032  30 ml",
+      "NY Bae Dewy Creme Blush - Sweet Mauve 02 (5.5 ml) | Liquid Blush | Dewy & Bold Finish | Natural Glow | Lightweight Formula | Buildable Pigment | Everyday Makeup | Hydrating Blush | Silky & Weightless | Long-Lasting Wear",
+      "NY Bae Velvet Mousse Liquid Lipstick - Barely Bold 08 (6.5 ml) | Velvet Matte Finish | Transferproof | Smudgeproof | Ultra Light | Smooth | Moisturising Nude Lipstick",
+      "Purplle Carry Bag Small 1.0 -1 cartoon = 250 qty. - 3 gm"
+    ],
+    "brand_names": [
+      "Faces Canada",
+      "NY Bae",
+      "Purplle"
+    ],
+    "categories": [
+      "bath-and-body",
+      "makeup"
+    ],
+    "total_quantity": 4,
+    "total_amount": 897.99
+  },
+  {
+    "invoice_number": "ML0426KAP0001438",
+    "order_id": 104389493,
+    "transaction_datetime": "2026-04-10 21:16:15",
+    "customer_number": 1000000000,
+    "salesperson_name": "Shashikala .",
+    "product_names": [
+      "Neutrogena Ultra Sheer Dry-Touch Sunblock SPF 50+ Ultra Light Clean Feel (30 ml)"
+    ],
+    "brand_names": [
+      "Neutrogena"
+    ],
+    "categories": [
+      "skin"
+    ],
+    "total_quantity": 1,
+    "total_amount": 269.1
+  },
+  {
+    "invoice_number": "ML0426KAP0001443",
+    "order_id": 104391745,
+    "transaction_datetime": "2026-04-10 21:39:55",
+    "customer_number": 1000000000,
+    "salesperson_name": "Shashikala .",
+    "product_names": [
+      "Bare Anatomy Ultra Smoothing Hair Serum 100 ml"
+    ],
+    "brand_names": [
+      "Bare Anatomy"
+    ],
+    "categories": [
+      "hair"
+    ],
+    "total_quantity": 1,
+    "total_amount": 427.5
+  }
+]
