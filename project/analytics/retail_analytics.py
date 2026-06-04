@@ -20,6 +20,7 @@ from typing import Any, Dict, List, Optional, Tuple
 import matplotlib.pyplot as plt
 
 from configs.camera_timing_config import OUTPUTS_CHARTS_DIR, OUTPUTS_DIR, PROJECT_ROOT
+from events.event_time import event_datetime_for_matching
 
 NORMALIZED_EVENT_FILES: Dict[str, Path] = {
     "CAM1": OUTPUTS_DIR / "cam1_events_normalized.jsonl",
@@ -34,6 +35,7 @@ CHARTS_DIR = OUTPUTS_CHARTS_DIR
 
 ZONE_ENTER = "ZONE_ENTER"
 DWELL_COMPLETED = "DWELL_COMPLETED"
+ZONE_DWELL = "ZONE_DWELL"
 CAM5_NON_BRAND_ZONES = frozenset({"PaymentArea", "BillingQueue", "OUT_OF_ZONE"})
 
 
@@ -72,7 +74,9 @@ def load_all_cctv_events() -> Tuple[List[Dict[str, Any]], Dict[str, int]]:
         for event in camera_events:
             event.setdefault("camera", camera_id)
             events.append(event)
-    events.sort(key=lambda item: item.get("event_datetime", ""))
+    events.sort(
+        key=lambda item: event_datetime_for_matching(item) or item.get("timestamp", "")
+    )
     return events, source_counts
 
 
@@ -84,8 +88,13 @@ def load_json_array(path: Path) -> List[Dict[str, Any]]:
     return data
 
 
+def event_zone_name(event: Dict[str, Any]) -> Optional[str]:
+    meta = event.get("metadata") or {}
+    return event.get("zone") or meta.get("sku_zone")
+
+
 def is_brand_zone_event(event: Dict[str, Any]) -> bool:
-    zone = event.get("zone")
+    zone = event_zone_name(event)
     if not zone or zone in CAM5_NON_BRAND_ZONES:
         return False
     return event.get("event_type") == ZONE_ENTER
@@ -100,15 +109,17 @@ def compute_cctv_analytics(events: List[Dict[str, Any]]) -> Dict[str, Any]:
 
     for event in events:
         visitor_id = str(event.get("visitor_id", "unknown"))
-        event_dt = str(event.get("event_datetime", ""))
-        zone = event.get("zone")
+        event_dt = event_datetime_for_matching(event) or ""
+        zone = event_zone_name(event)
 
         if is_brand_zone_event(event) and zone:
             brand_visit_counts[str(zone)] += 1
             journeys[visitor_id].append((event_dt, str(zone)))
 
-        if event.get("event_type") == DWELL_COMPLETED and zone:
+        if event.get("event_type") in (DWELL_COMPLETED, ZONE_DWELL) and zone:
             dwell = event.get("dwell_seconds")
+            if dwell is None and event.get("dwell_ms") is not None:
+                dwell = float(event["dwell_ms"]) / 1000.0
             if isinstance(dwell, (int, float)):
                 dwell_totals[str(zone)] += float(dwell)
                 dwell_samples[str(zone)] += 1
@@ -230,9 +241,11 @@ def compute_matching_analytics(
             + journey.get("cam5_events", [])
         )
         zones = [
-            event.get("zone")
+            z
             for event in all_events
-            if event.get("event_type") == ZONE_ENTER and event.get("zone")
+            if event.get("event_type") == ZONE_ENTER
+            for z in [event_zone_name(event)]
+            if z
         ]
         conversion_opportunities.append(
             {

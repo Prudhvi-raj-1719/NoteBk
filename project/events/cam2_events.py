@@ -9,7 +9,6 @@ _PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
-import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -24,6 +23,7 @@ from configs.camera_timing_config import (
     MODEL_PATH,
     OUTPUTS_DIR,
 )
+from events.event_emitter import EventEmitter
 
 VIDEO_PATH = CAMERA_VIDEO_FILES["CAM2"]
 WINDOW_NAME = "CAM2 Events"
@@ -128,58 +128,15 @@ class TrackState:
 
 
 @dataclass
-class EventStats:
-    total: int = 0
-    zone_enter: int = 0
-    zone_exit: int = 0
-    dwell_completed: int = 0
-
-
-@dataclass
 class StabilizationStats:
     ignored_zone_transitions: int = 0
     ignored_short_dwells: int = 0
 
 
-class EventLogger:
-    def __init__(self, output_path: Path = EVENTS_PATH) -> None:
-        self.output_path = output_path
-        self.stats = EventStats()
-
-    def emit_event(self, event: Dict[str, Any]) -> None:
-        self.stats.total += 1
-        event_type = event.get("event_type", "")
-        if event_type == "ZONE_ENTER":
-            self.stats.zone_enter += 1
-        elif event_type == "ZONE_EXIT":
-            self.stats.zone_exit += 1
-        elif event_type == "DWELL_COMPLETED":
-            self.stats.dwell_completed += 1
-
-        print("[EVENT]")
-        for key, value in event.items():
-            print(f"{key}={value}")
-        print()
-
-        with self.output_path.open("a", encoding="utf-8") as handle:
-            handle.write(json.dumps(event) + "\n")
-
-    def print_summary(self, stabilization: Optional[StabilizationStats] = None) -> None:
-        print("=" * 40)
-        print(f"Total Events: {self.stats.total}")
-        print(f"ZONE_ENTER count: {self.stats.zone_enter}")
-        print(f"ZONE_EXIT count: {self.stats.zone_exit}")
-        print(f"DWELL_COMPLETED count: {self.stats.dwell_completed}")
-        if stabilization is not None:
-            print(f"Ignored zone transitions: {stabilization.ignored_zone_transitions}")
-            print(f"Ignored short dwells: {stabilization.ignored_short_dwells}")
-        print(f"Events written to: {self.output_path.resolve()}")
-
-
 class ZoneEventEngine:
     def __init__(
         self,
-        event_logger: EventLogger,
+        event_logger: EventEmitter,
         fps: float,
         camera_id: str = CAMERA_ID,
     ) -> None:
@@ -680,9 +637,8 @@ def main() -> None:
     }
     print_converted_coordinates(zone_polygons, video_width, video_height)
 
-    EVENTS_PATH.open("w", encoding="utf-8").close()
-    event_logger = EventLogger(EVENTS_PATH)
-    event_engine = ZoneEventEngine(event_logger, fps=fps)
+    event_emitter = EventEmitter(EVENTS_PATH, CAMERA_ID)
+    event_engine = ZoneEventEngine(event_emitter, fps=fps)
     tracker = create_byte_tracker()
     cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
 
@@ -725,7 +681,7 @@ def main() -> None:
         event_engine.finalize(original_frame)
         capture.release()
         cv2.destroyAllWindows()
-        event_logger.print_summary(event_engine.stabilization)
+        event_emitter.print_summary_cam1(event_engine.stabilization)
 
 
 if __name__ == "__main__":

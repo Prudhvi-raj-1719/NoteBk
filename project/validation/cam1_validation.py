@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -9,7 +10,6 @@ _PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
-from pathlib import Path
 from typing import Dict, List, Tuple
 
 import cv2
@@ -17,17 +17,26 @@ import numpy as np
 import supervision as sv
 from ultralytics import YOLO
 
-from configs.camera_timing_config import CAMERA_VIDEO_FILES, MODEL_PATH
+from configs.camera_timing_config import CAMERA_VIDEO_FILES, DATA_DIR, MODEL_PATH
 
-VIDEO_PATH = CAMERA_VIDEO_FILES["CAM1"]
+_FOOTAGE2 = os.getenv("VALIDATE_FOOTAGE2") == "1"
+_FOOTAGE2_DIR = DATA_DIR / "CCTV Footage_2"
+
+if _FOOTAGE2:
+    VIDEO_PATH = _FOOTAGE2_DIR / "zone.mp4"
+    WINDOW_NAME = "Footage2 Zone Validation"
+else:
+    VIDEO_PATH = CAMERA_VIDEO_FILES["CAM1"]
+    WINDOW_NAME = "CAM1 Validation"
 
 PERSON_CLASS_ID = 0
 OUT_OF_ZONE = "OUT_OF_ZONE"
 CONFIDENCE_THRESHOLD = 0.35
 IOU_THRESHOLD = 0.5
 MIN_OVERLAP_PCT = 10
+PROCESS_EVERY_N_FRAMES = 10
 
-CAM1_BRANDS: Dict[str, List[Tuple[float, float]]] = {
+_BRIGADE_CAM1_BRANDS: Dict[str, List[Tuple[float, float]]] = {
     "Minimalist_top": [
         (0.7323, 0.0391),
         (0.7298, 0.0651),
@@ -86,6 +95,53 @@ CAM1_BRANDS: Dict[str, List[Tuple[float, float]]] = {
         (0.8101, 0.4378),
     ],
 }
+
+_FOOTAGE2_ZONE_BRANDS: Dict[str, List[Tuple[float, float]]] = {
+    "GoodVibes": [
+        (0.7832, 0.0194),
+        (0.6825, 0.6882),
+        (0.7860, 0.8263),
+        (0.9638, 0.0697),
+    ],
+    "Pilgrim": [
+        (0.0069, 0.0564),
+        (0.0778, 0.8683),
+        (0.2125, 0.7586),
+        (0.0910, 0.0078),
+    ],
+    "Mamaearth": [
+        (0.5293, 0.0065),
+        (0.4958, 0.4646),
+        (0.5759, 0.5661),
+        (0.6381, 0.0518),
+    ],
+    "Cetaphil": [
+        (0.9382, 0.2825),
+        (0.8004, 0.8488),
+        (0.9034, 0.9667),
+        (0.9960, 0.6674),
+    ],
+    "Neutrogena": [
+        (0.1209, 0.1564),
+        (0.2159, 0.7619),
+        (0.3476, 0.6465),
+        (0.2798, 0.0307),
+    ],
+    "DandK": [
+        (0.2797, 0.0185),
+        (0.3459, 0.6514),
+        (0.4241, 0.5763),
+        (0.3781, 0.0048),
+    ],
+    "DermaComp": [
+        (0.6407, 0.0219),
+        (0.5799, 0.5739),
+        (0.6742, 0.6872),
+        (0.7780, 0.0403),
+    ],
+}
+
+CAM1_BRANDS = _FOOTAGE2_ZONE_BRANDS if _FOOTAGE2 else _BRIGADE_CAM1_BRANDS
 
 ZONE_COLORS: List[Tuple[int, int, int]] = [
     (0, 255, 255),
@@ -303,6 +359,7 @@ def main() -> None:
     print(f"Video resolution: {video_width} x {video_height}")
     print(f"Number of zones: {len(CAM1_BRANDS)}")
     print("Zone assignment mode: POLYGON_OVERLAP")
+    print(f"Process every N frames: {PROCESS_EVERY_N_FRAMES}")
 
     yolo_model = YOLO(MODEL_PATH)
     print("YOLO model loaded successfully")
@@ -314,15 +371,25 @@ def main() -> None:
     print_converted_coordinates(zone_polygons, video_width, video_height)
 
     tracker = create_byte_tracker()
-    window_name = "CAM1 Validation"
-    cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+    headless = os.getenv("VALIDATION_HEADLESS") == "1"
+    save_path = os.getenv("VALIDATION_SAVE_PATH")
+    save_frame = int(os.getenv("VALIDATION_SAVE_FRAME", "0"))
+    save_only = os.getenv("VALIDATION_SAVE_ONLY") == "1"
+    if not headless:
+        cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
 
-    frame_idx = 0
+    original_frame = 0
+    processed_frame = 0
     try:
         while True:
             success, frame = capture.read()
             if not success:
                 break
+
+            if original_frame % PROCESS_EVERY_N_FRAMES != 0:
+                original_frame += 1
+                del frame
+                continue
 
             detections = detect_persons(frame, yolo_model)
             detections = tracker.update_with_detections(detections)
@@ -331,17 +398,31 @@ def main() -> None:
             )
 
             annotated = draw_zones(frame, zone_polygons)
-            annotated = annotate_detections(annotated, detections, track_zones, frame_idx)
+            annotated = annotate_detections(
+                annotated, detections, track_zones, original_frame
+            )
 
-            cv2.imshow(window_name, annotated)
-            key = cv2.waitKey(1) & 0xFF
-            if key in (ord("q"), 27):
-                break
+            if save_path and original_frame == save_frame:
+                out = Path(save_path)
+                out.parent.mkdir(parents=True, exist_ok=True)
+                cv2.imwrite(str(out), annotated)
+                print(f"Saved validation preview: {out.resolve()}")
+                if save_only:
+                    break
 
-            frame_idx += 1
+            if not headless:
+                cv2.imshow(WINDOW_NAME, annotated)
+                key = cv2.waitKey(1) & 0xFF
+                if key in (ord("q"), 27):
+                    break
+
+            del frame, annotated, detections, track_zones
+            processed_frame += 1
+            original_frame += 1
     finally:
         capture.release()
-        cv2.destroyAllWindows()
+        if not headless:
+            cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":

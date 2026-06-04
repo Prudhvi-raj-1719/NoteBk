@@ -10,6 +10,7 @@ if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
 import json
+import os
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -21,13 +22,15 @@ from ultralytics import YOLO
 
 from configs.camera_timing_config import (
     CAMERA_VIDEO_FILES,
+    DATA_DIR,
     MODEL_PATH,
     OUTPUTS_DIR,
 )
+from events.event_emitter import EventEmitter
 
-VIDEO_PATH = CAMERA_VIDEO_FILES["CAM1"]
-WINDOW_NAME = "CAM1 Events"
-EVENTS_PATH = OUTPUTS_DIR / "cam1_events.jsonl"
+_FOOTAGE2 = os.getenv("GENERATE_FOOTAGE2") == "1"
+_FOOTAGE2_DIR = DATA_DIR / "CCTV Footage_2"
+
 CAMERA_ID = "CAM1"
 
 PERSON_CLASS_ID = 0
@@ -41,7 +44,7 @@ MIN_DWELL_SECONDS = 2.0
 PROCESS_EVERY_N_FRAMES = 10
 MEMORY_DIAG_EVERY_N_FRAMES = 100
 
-CAM1_BRANDS: Dict[str, List[Tuple[float, float]]] = {
+_BRIGADE_CAM1_BRANDS: Dict[str, List[Tuple[float, float]]] = {
     "Minimalist_top": [
         (0.7323, 0.0391),
         (0.7298, 0.0651),
@@ -101,6 +104,62 @@ CAM1_BRANDS: Dict[str, List[Tuple[float, float]]] = {
     ],
 }
 
+_FOOTAGE2_ZONE_BRANDS: Dict[str, List[Tuple[float, float]]] = {
+    "GoodVibes": [
+        (0.7832, 0.0194),
+        (0.6825, 0.6882),
+        (0.7860, 0.8263),
+        (0.9638, 0.0697),
+    ],
+    "Pilgrim": [
+        (0.0069, 0.0564),
+        (0.0778, 0.8683),
+        (0.2125, 0.7586),
+        (0.0910, 0.0078),
+    ],
+    "Mamaearth": [
+        (0.5293, 0.0065),
+        (0.4958, 0.4646),
+        (0.5759, 0.5661),
+        (0.6381, 0.0518),
+    ],
+    "Cetaphil": [
+        (0.9382, 0.2825),
+        (0.8004, 0.8488),
+        (0.9034, 0.9667),
+        (0.9960, 0.6674),
+    ],
+    "Neutrogena": [
+        (0.1209, 0.1564),
+        (0.2159, 0.7619),
+        (0.3476, 0.6465),
+        (0.2798, 0.0307),
+    ],
+    "DandK": [
+        (0.2797, 0.0185),
+        (0.3459, 0.6514),
+        (0.4241, 0.5763),
+        (0.3781, 0.0048),
+    ],
+    "DermaComp": [
+        (0.6407, 0.0219),
+        (0.5799, 0.5739),
+        (0.6742, 0.6872),
+        (0.7780, 0.0403),
+    ],
+}
+
+if _FOOTAGE2:
+    VIDEO_PATH = _FOOTAGE2_DIR / "zone.mp4"
+    WINDOW_NAME = "Footage2 CAM1 Events"
+    EVENTS_PATH = OUTPUTS_DIR / "cam1_footage2_events.jsonl"
+    CAM1_BRANDS = _FOOTAGE2_ZONE_BRANDS
+else:
+    VIDEO_PATH = CAMERA_VIDEO_FILES["CAM1"]
+    WINDOW_NAME = "CAM1 Events"
+    EVENTS_PATH = OUTPUTS_DIR / "cam1_events.jsonl"
+    CAM1_BRANDS = _BRIGADE_CAM1_BRANDS
+
 
 def video_seconds(frame_index: int, fps: float) -> float:
     return frame_index / fps
@@ -138,58 +197,15 @@ class TrackState:
 
 
 @dataclass
-class EventStats:
-    total: int = 0
-    zone_enter: int = 0
-    zone_exit: int = 0
-    dwell_completed: int = 0
-
-
-@dataclass
 class StabilizationStats:
     ignored_zone_transitions: int = 0
     ignored_short_dwells: int = 0
 
 
-class EventLogger:
-    def __init__(self, output_path: Path = EVENTS_PATH) -> None:
-        self.output_path = output_path
-        self.stats = EventStats()
-
-    def emit_event(self, event: Dict[str, Any]) -> None:
-        self.stats.total += 1
-        event_type = event.get("event_type", "")
-        if event_type == "ZONE_ENTER":
-            self.stats.zone_enter += 1
-        elif event_type == "ZONE_EXIT":
-            self.stats.zone_exit += 1
-        elif event_type == "DWELL_COMPLETED":
-            self.stats.dwell_completed += 1
-
-        print("[EVENT]")
-        for key, value in event.items():
-            print(f"{key}={value}")
-        print()
-
-        with self.output_path.open("a", encoding="utf-8") as handle:
-            handle.write(json.dumps(event) + "\n")
-
-    def print_summary(self, stabilization: Optional[StabilizationStats] = None) -> None:
-        print("=" * 40)
-        print(f"Total Events: {self.stats.total}")
-        print(f"ZONE_ENTER count: {self.stats.zone_enter}")
-        print(f"ZONE_EXIT count: {self.stats.zone_exit}")
-        print(f"DWELL_COMPLETED count: {self.stats.dwell_completed}")
-        if stabilization is not None:
-            print(f"Ignored zone transitions: {stabilization.ignored_zone_transitions}")
-            print(f"Ignored short dwells: {stabilization.ignored_short_dwells}")
-        print(f"Events written to: {self.output_path.resolve()}")
-
-
 class ZoneEventEngine:
     def __init__(
         self,
-        event_logger: EventLogger,
+        event_logger: EventEmitter,
         fps: float,
         camera_id: str = CAMERA_ID,
     ) -> None:
@@ -677,14 +693,18 @@ def main() -> None:
     video_height = int(capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = float(capture.get(cv2.CAP_PROP_FPS) or 30.0)
 
+    print(f"Footage2 mode: {_FOOTAGE2}")
+    print(f"Video: {Path(VIDEO_PATH).name}")
+    print(f"Output: {EVENTS_PATH.name}")
+    print(f"Video path: {Path(VIDEO_PATH).resolve()}")
+    print(f"Output path: {EVENTS_PATH.resolve()}")
+    print(f"Process every N frames: {PROCESS_EVERY_N_FRAMES}")
     print(f"Video resolution: {video_width} x {video_height}")
     print(f"Video FPS: {fps:.2f}")
     print(f"Number of zones: {len(CAM1_BRANDS)}")
     print("Zone assignment mode: POLYGON_OVERLAP")
     print(f"Zone stability frames: {MIN_ZONE_STABILITY_FRAMES}")
     print(f"Minimum dwell seconds: {MIN_DWELL_SECONDS}")
-    print(f"Process every N frames: {PROCESS_EVERY_N_FRAMES}")
-
     yolo_model = YOLO(MODEL_PATH)
     print("YOLO model loaded successfully")
 
@@ -694,9 +714,8 @@ def main() -> None:
     }
     print_converted_coordinates(zone_polygons, video_width, video_height)
 
-    EVENTS_PATH.open("w", encoding="utf-8").close()
-    event_logger = EventLogger(EVENTS_PATH)
-    event_engine = ZoneEventEngine(event_logger, fps=fps)
+    event_emitter = EventEmitter(EVENTS_PATH, CAMERA_ID)
+    event_engine = ZoneEventEngine(event_emitter, fps=fps)
     tracker = create_byte_tracker()
     cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
 
@@ -757,7 +776,7 @@ def main() -> None:
         if capture.isOpened():
             capture.release()
         cv2.destroyAllWindows()
-        event_logger.print_summary(event_engine.stabilization)
+        event_emitter.print_summary_cam1(event_engine.stabilization)
 
 
 if __name__ == "__main__":

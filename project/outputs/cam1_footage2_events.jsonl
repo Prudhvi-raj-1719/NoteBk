@@ -1,0 +1,12 @@
+{"visitor_id": 6, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Neutrogena", "timestamp": "00:01:00.800"}
+{"visitor_id": 6, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Neutrogena", "timestamp": "00:01:08.400"}
+{"visitor_id": 6, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Neutrogena", "dwell_seconds": 7.6, "timestamp": "00:01:08.400"}
+{"visitor_id": 7, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Cetaphil", "timestamp": "00:01:09.200"}
+{"visitor_id": 7, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Cetaphil", "timestamp": "00:01:12.400"}
+{"visitor_id": 7, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Cetaphil", "dwell_seconds": 3.2, "timestamp": "00:01:12.400"}
+{"visitor_id": 14, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "DermaComp", "timestamp": "00:01:21.200"}
+{"visitor_id": 14, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "DermaComp", "timestamp": "00:01:36.400"}
+{"visitor_id": 14, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "DermaComp", "dwell_seconds": 15.2, "timestamp": "00:01:36.400"}
+{"visitor_id": 15, "camera": "CAM1", "event_type": "ZONE_ENTER", "zone": "Cetaphil", "timestamp": "00:01:52.000"}
+{"visitor_id": 15, "camera": "CAM1", "event_type": "ZONE_EXIT", "zone": "Cetaphil", "timestamp": "00:01:55.920"}
+{"visitor_id": 15, "camera": "CAM1", "event_type": "DWELL_COMPLETED", "zone": "Cetaphil", "dwell_seconds": 3.9, "timestamp": "00:01:55.920"}

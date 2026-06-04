@@ -10,6 +10,7 @@ if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
 import json
+import os
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -21,13 +22,18 @@ from ultralytics import YOLO
 
 from configs.camera_timing_config import (
     CAMERA_VIDEO_FILES,
+    DATA_DIR,
     MODEL_PATH,
     OUTPUTS_DIR,
 )
+from events.event_emitter import EventEmitter
 
-VIDEO_PATH = CAMERA_VIDEO_FILES["CAM5"]
-WINDOW_NAME = "CAM5 Events"
-EVENTS_PATH = OUTPUTS_DIR / "cam5_events.jsonl"
+_FOOTAGE2_DIR = DATA_DIR / "CCTV Footage_2"
+
+
+def _footage2_enabled() -> bool:
+    return os.getenv("GENERATE_FOOTAGE2") == "1"
+
 CAMERA_ID = "CAM5"
 
 PERSON_CLASS_ID = 0
@@ -41,12 +47,56 @@ LOST_TRACK_FRAMES = 30
 ZONE_STABILITY_FRAMES = 15
 MIN_ZONE_STABILITY_FRAMES = ZONE_STABILITY_FRAMES
 MIN_DWELL_SECONDS = 2.0
-PROCESS_EVERY_N_FRAMES = 10
+PROCESS_EVERY_N_FRAMES = 5
 
-ANNOTATION_WIDTH = 1056
-ANNOTATION_HEIGHT = 629
+_BRIGADE_ANNOTATION_WIDTH = 1056
+_BRIGADE_ANNOTATION_HEIGHT = 629
 
-CAM5_ZONES: Dict[str, List[Tuple[float, float]]] = {
+# Footage2 billing_area.mp4 — annotation canvas 1646 x 1850 (label JSON export).
+# "Billing" (id 1) -> PaymentArea; "billQ" (id 2) -> BillingQueue.
+_FOOTAGE2_IMAGE_WIDTH = 1646
+_FOOTAGE2_IMAGE_HEIGHT = 1850
+
+_FOOTAGE2_BILLING_POLYGON = np.array(
+    [
+        [607.039, 829.414],
+        [591.637, 1095.000],
+        [1157.383, 1066.314],
+        [1131.497, 818.658],
+    ],
+    dtype=np.float64,
+)
+
+_FOOTAGE2_BILLQ_POLYGON = np.array(
+    [
+        [416.593, 384.077],
+        [281.211, 1044.466],
+        [1530.533, 1022.186],
+        [1425.156, 398.061],
+    ],
+    dtype=np.float64,
+)
+
+_FOOTAGE2_ZONE_DISPLAY_LABELS: Dict[str, str] = {
+    PAYMENT_ZONE: "Billing",
+    QUEUE_ZONE: "billQ",
+}
+
+
+def _scale_footage2_polygon_to_video(
+    polygon_ann: np.ndarray,
+    video_width: int,
+    video_height: int,
+) -> np.ndarray:
+    sx = video_width / _FOOTAGE2_IMAGE_WIDTH
+    sy = video_height / _FOOTAGE2_IMAGE_HEIGHT
+    scaled = np.empty_like(polygon_ann, dtype=np.float64)
+    scaled[:, 0] = polygon_ann[:, 0] * sx
+    scaled[:, 1] = polygon_ann[:, 1] * sy
+    return np.round(scaled).astype(np.int32)
+
+
+_BRIGADE_CAM5_ZONES: Dict[str, List[Tuple[float, float]]] = {
     "BillingQueue": [
         (0.0016, 0.1970),
         (0.2625, 0.1934),
@@ -61,6 +111,25 @@ CAM5_ZONES: Dict[str, List[Tuple[float, float]]] = {
         (0.1594, 0.4869),
     ],
 }
+
+def _resolve_cam5_runtime() -> Tuple[Path, Path, str, int, int, Dict[str, List[Tuple[float, float]]]]:
+    if _footage2_enabled():
+        return (
+            _FOOTAGE2_DIR / "billing_area.mp4",
+            OUTPUTS_DIR / "cam5_footage2_events.jsonl",
+            "Footage2 CAM5 Events",
+            _FOOTAGE2_IMAGE_WIDTH,
+            _FOOTAGE2_IMAGE_HEIGHT,
+            _BRIGADE_CAM5_ZONES,
+        )
+    return (
+        CAMERA_VIDEO_FILES["CAM5"],
+        OUTPUTS_DIR / "cam5_events.jsonl",
+        "CAM5 Events",
+        _BRIGADE_ANNOTATION_WIDTH,
+        _BRIGADE_ANNOTATION_HEIGHT,
+        _BRIGADE_CAM5_ZONES,
+    )
 
 ZONE_PRIORITY: Tuple[str, ...] = ("PaymentArea", "BillingQueue")
 
@@ -93,74 +162,15 @@ class TrackState:
 
 
 @dataclass
-class EventStats:
-    queue_enter: int = 0
-    queue_exit: int = 0
-    payment_enter: int = 0
-    payment_exit: int = 0
-    dwell_completed: int = 0
-
-    @property
-    def total(self) -> int:
-        return (
-            self.queue_enter
-            + self.queue_exit
-            + self.payment_enter
-            + self.payment_exit
-            + self.dwell_completed
-        )
-
-
-@dataclass
 class StabilizationStats:
     ignored_zone_transitions: int = 0
     ignored_short_dwells: int = 0
 
 
-class EventLogger:
-    def __init__(self, output_path: Path = EVENTS_PATH) -> None:
-        self.output_path = output_path
-        self.stats = EventStats()
-
-    def emit_event(self, event: Dict[str, Any]) -> None:
-        event_type = event.get("event_type", "")
-        if event_type == "QUEUE_ENTER":
-            self.stats.queue_enter += 1
-        elif event_type == "QUEUE_EXIT":
-            self.stats.queue_exit += 1
-        elif event_type == "PAYMENT_ENTER":
-            self.stats.payment_enter += 1
-        elif event_type == "PAYMENT_EXIT":
-            self.stats.payment_exit += 1
-        elif event_type == "DWELL_COMPLETED":
-            self.stats.dwell_completed += 1
-
-        print("[EVENT]")
-        for key, value in event.items():
-            print(f"{key}={value}")
-        print()
-
-        with self.output_path.open("a", encoding="utf-8") as handle:
-            handle.write(json.dumps(event) + "\n")
-
-    def print_summary(self, stabilization: Optional[StabilizationStats] = None) -> None:
-        print("=" * 40)
-        print(f"Total Events: {self.stats.total}")
-        print(f"QUEUE_ENTER count: {self.stats.queue_enter}")
-        print(f"QUEUE_EXIT count: {self.stats.queue_exit}")
-        print(f"PAYMENT_ENTER count: {self.stats.payment_enter}")
-        print(f"PAYMENT_EXIT count: {self.stats.payment_exit}")
-        print(f"DWELL_COMPLETED count: {self.stats.dwell_completed}")
-        if stabilization is not None:
-            print(f"Ignored zone transitions: {stabilization.ignored_zone_transitions}")
-            print(f"Ignored short dwells: {stabilization.ignored_short_dwells}")
-        print(f"Events written to: {self.output_path.resolve()}")
-
-
 class PaymentEventEngine:
     def __init__(
         self,
-        event_logger: EventLogger,
+        event_logger: EventEmitter,
         fps: float,
         camera_id: str = CAMERA_ID,
     ) -> None:
@@ -432,9 +442,25 @@ def denormalize_polygon(
 
 
 def build_zone_polygons(video_width: int, video_height: int) -> Dict[str, np.ndarray]:
+    if _footage2_enabled():
+        return {
+            PAYMENT_ZONE: _scale_footage2_polygon_to_video(
+                _FOOTAGE2_BILLING_POLYGON, video_width, video_height
+            ),
+            QUEUE_ZONE: _scale_footage2_polygon_to_video(
+                _FOOTAGE2_BILLQ_POLYGON, video_width, video_height
+            ),
+        }
     return {
         name: denormalize_polygon(points, video_width, video_height)
-        for name, points in CAM5_ZONES.items()
+        for name, points in _BRIGADE_CAM5_ZONES.items()
+    }
+
+
+def _footage2_annotation_vertices() -> Dict[str, np.ndarray]:
+    return {
+        PAYMENT_ZONE: _FOOTAGE2_BILLING_POLYGON,
+        QUEUE_ZONE: _FOOTAGE2_BILLQ_POLYGON,
     }
 
 
@@ -539,6 +565,8 @@ def draw_polygon(
     polygon: np.ndarray,
     color: Tuple[int, int, int],
     label: str,
+    *,
+    annotation_vertices: Optional[np.ndarray] = None,
 ) -> np.ndarray:
     annotated = frame_bgr.copy()
     pts = polygon.reshape((-1, 1, 2)).astype(np.int32)
@@ -547,6 +575,11 @@ def draw_polygon(
         x, y = int(vertex[0]), int(vertex[1])
         cv2.circle(annotated, (x, y), 8, color, -1, cv2.LINE_AA)
         cv2.circle(annotated, (x, y), 10, (255, 255, 255), 2, cv2.LINE_AA)
+        if annotation_vertices is not None and index < len(annotation_vertices):
+            ax, ay = annotation_vertices[index]
+            coord_text = f"({ax:.1f},{ay:.1f})"
+        else:
+            coord_text = f"({x},{y})"
         cv2.putText(
             annotated,
             f"{index}",
@@ -569,17 +602,7 @@ def draw_polygon(
         )
         cv2.putText(
             annotated,
-            f"({x},{y})",
-            (x + 12, y + 18),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.45,
-            (255, 255, 255),
-            2,
-            cv2.LINE_AA,
-        )
-        cv2.putText(
-            annotated,
-            f"({x},{y})",
+            coord_text,
             (x + 12, y + 18),
             cv2.FONT_HERSHEY_SIMPLEX,
             0.45,
@@ -614,10 +637,23 @@ def draw_polygon(
 def draw_zones(frame_bgr: np.ndarray, zone_polygons: Dict[str, np.ndarray]) -> np.ndarray:
     annotated = frame_bgr.copy()
     draw_order = (QUEUE_ZONE, PAYMENT_ZONE)
+    ann_vertices = _footage2_annotation_vertices() if _footage2_enabled() else {}
     for zone_name in draw_order:
         polygon = zone_polygons[zone_name]
         color = ZONE_COLORS[zone_name]
-        annotated = draw_polygon(annotated, polygon, color=color, label=zone_name)
+        if _footage2_enabled():
+            label = f"{_FOOTAGE2_ZONE_DISPLAY_LABELS[zone_name]} ({zone_name})"
+            ann = ann_vertices.get(zone_name)
+        else:
+            label = zone_name
+            ann = None
+        annotated = draw_polygon(
+            annotated,
+            polygon,
+            color=color,
+            label=label,
+            annotation_vertices=ann,
+        )
     return annotated
 
 
@@ -711,12 +747,23 @@ def print_zone_debug(
     zone_polygons: Dict[str, np.ndarray],
     video_width: int,
     video_height: int,
+    *,
+    annotation_width: int,
+    annotation_height: int,
 ) -> None:
-    print(f"\nAnnotation reference: {ANNOTATION_WIDTH} x {ANNOTATION_HEIGHT}")
-    print("\nNormalized coordinates:")
-    for zone_name in (QUEUE_ZONE, PAYMENT_ZONE):
-        print(f"  {zone_name}: {CAM5_ZONES[zone_name]}")
-    print("\nDenormalized coordinates:")
+    print(f"\nAnnotation reference: {annotation_width} x {annotation_height}")
+    if _footage2_enabled():
+        ann = _footage2_annotation_vertices()
+        print("\nFootage2 JSON polygons (annotation pixels):")
+        for zone_name in (QUEUE_ZONE, PAYMENT_ZONE):
+            tag = _FOOTAGE2_ZONE_DISPLAY_LABELS[zone_name]
+            pts = [(round(float(x), 3), round(float(y), 3)) for x, y in ann[zone_name]]
+            print(f"  {tag} -> {zone_name}: {pts}")
+    else:
+        print("\nNormalized coordinates:")
+        for zone_name in (QUEUE_ZONE, PAYMENT_ZONE):
+            print(f"  {zone_name}: {_BRIGADE_CAM5_ZONES[zone_name]}")
+    print(f"\nScaled to video ({video_width} x {video_height}):")
     for zone_name in (QUEUE_ZONE, PAYMENT_ZONE):
         coords = [(int(x), int(y)) for x, y in zone_polygons[zone_name]]
         print(f"  {zone_name}: {coords}")
@@ -727,33 +774,42 @@ def print_zone_debug(
 
 
 def main() -> None:
-    capture = cv2.VideoCapture(str(VIDEO_PATH))
+    video_path, events_path, window_name, ann_w, ann_h, _ = _resolve_cam5_runtime()
+    capture = cv2.VideoCapture(str(video_path))
     if not capture.isOpened():
-        raise FileNotFoundError(f"Unable to open video: {VIDEO_PATH}")
+        raise FileNotFoundError(f"Unable to open video: {video_path}")
 
     video_width = int(capture.get(cv2.CAP_PROP_FRAME_WIDTH))
     video_height = int(capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = float(capture.get(cv2.CAP_PROP_FPS) or 30.0)
 
+    print(f"Footage2 mode: {_footage2_enabled()}")
+    print(f"Video: {Path(video_path).name}")
+    print(f"Output: {events_path.name}")
+    print(f"Video path: {Path(video_path).resolve()}")
+    print(f"Output path: {events_path.resolve()}")
+    print(f"Process every N frames: {PROCESS_EVERY_N_FRAMES}")
     print(f"Video resolution: {video_width} x {video_height}")
     print(f"Video FPS: {fps:.2f}")
-    print(f"Number of zones: {len(CAM5_ZONES)}")
     print("Zone assignment mode: OVERLAP_PRIORITY (PaymentArea > BillingQueue)")
     print(f"Zone stability frames: {MIN_ZONE_STABILITY_FRAMES}")
     print(f"Minimum dwell seconds: {MIN_DWELL_SECONDS}")
-    print(f"Process every N frames: {PROCESS_EVERY_N_FRAMES}")
-
     yolo_model = YOLO(MODEL_PATH)
     print("YOLO model loaded successfully")
 
     zone_polygons = build_zone_polygons(video_width, video_height)
-    print_zone_debug(zone_polygons, video_width, video_height)
+    print_zone_debug(
+        zone_polygons,
+        video_width,
+        video_height,
+        annotation_width=ann_w,
+        annotation_height=ann_h,
+    )
 
-    EVENTS_PATH.open("w", encoding="utf-8").close()
-    event_logger = EventLogger(EVENTS_PATH)
-    event_engine = PaymentEventEngine(event_logger, fps=fps)
+    event_emitter = EventEmitter(events_path, CAMERA_ID)
+    event_engine = PaymentEventEngine(event_emitter, fps=fps)
     tracker = create_byte_tracker()  # single tracker instance for full video
-    cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
+    cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
 
     original_frame = 0
     processed_frame = 0
@@ -790,7 +846,7 @@ def main() -> None:
                 processed_frame,
             )
 
-            cv2.imshow(WINDOW_NAME, annotated)
+            cv2.imshow(window_name, annotated)
             key = cv2.waitKey(1) & 0xFF
             if key in (ord("q"), 27):
                 break
@@ -802,7 +858,7 @@ def main() -> None:
         if capture.isOpened():
             capture.release()
         cv2.destroyAllWindows()
-        event_logger.print_summary(event_engine.stabilization)
+        event_emitter.print_summary_cam5(event_engine.stabilization)
 
 
 if __name__ == "__main__":

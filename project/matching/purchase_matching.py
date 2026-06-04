@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 from configs.camera_timing_config import OUTPUTS_DIR, OUTPUTS_REPORTS_DIR
+from events.event_time import event_datetime_for_matching, utc_iso_to_datetime
 
 MATCH_WINDOW_MINUTES = 5
 
@@ -28,9 +29,22 @@ NORMALIZED_EVENT_FILES: Dict[str, Path] = {
 OUTPUT_PATH = OUTPUTS_DIR / "purchase_matches.json"
 REPORT_PATH = OUTPUTS_REPORTS_DIR / "purchase_matching_report.txt"
 
-QUEUE_EVENT_TYPES = frozenset({"QUEUE_ENTER", "QUEUE_EXIT"})
-PAYMENT_EVENT_TYPES = frozenset({"PAYMENT_ENTER", "PAYMENT_EXIT"})
+QUEUE_EVENT_TYPES = frozenset(
+    {"QUEUE_ENTER", "QUEUE_EXIT", "BILLING_QUEUE_JOIN", "BILLING_QUEUE_ABANDON", "BILLING_QUEUE_EXIT"}
+)
+PAYMENT_EVENT_TYPES = frozenset(
+    {
+        "PAYMENT_ENTER",
+        "PAYMENT_EXIT",
+        "ZONE_ENTER",
+        "ZONE_EXIT",
+        "BILLING_START",
+        "BILLING_COMPLETE",
+    }
+)
 ZONE_ENTER = "ZONE_ENTER"
+ZONE_DWELL = "ZONE_DWELL"
+DWELL_COMPLETED = "DWELL_COMPLETED"
 QUEUE_ZONE_NAMES = frozenset({"BillingQueue"})
 PAYMENT_ZONE_NAMES = frozenset({"PaymentArea"})
 
@@ -98,14 +112,20 @@ def load_events_by_camera(
                     )
                     continue
 
-                event_dt = event.get("event_datetime")
+                event_dt = event_datetime_for_matching(event)
                 if not event_dt:
                     stats.load_notes.append(
-                        f"{path.name} line {line_no}: missing event_datetime"
+                        f"{path.name} line {line_no}: missing timestamp/event_datetime"
                     )
                     continue
 
-                event["_parsed_datetime"] = parse_event_datetime(str(event_dt))
+                ts_text = str(event_dt)
+                if ts_text.endswith("Z"):
+                    event["_parsed_datetime"] = utc_iso_to_datetime(ts_text).replace(
+                        tzinfo=None
+                    )
+                else:
+                    event["_parsed_datetime"] = parse_event_datetime(ts_text)
                 event.setdefault("camera", camera_id)
                 by_camera[camera_id].append(event)
                 count += 1
@@ -139,6 +159,12 @@ def has_queue_activity(events: List[Dict[str, Any]]) -> bool:
     for event in events:
         if event.get("event_type") in QUEUE_EVENT_TYPES:
             return True
+        if event.get("zone_id") in ("BILLING", "billQ") and event.get("event_type") in (
+            "BILLING_QUEUE_JOIN",
+            "BILLING_QUEUE_ABANDON",
+            "BILLING_QUEUE_EXIT",
+        ):
+            return True
         if event.get("zone") in QUEUE_ZONE_NAMES:
             return True
     return False
@@ -146,9 +172,16 @@ def has_queue_activity(events: List[Dict[str, Any]]) -> bool:
 
 def has_payment_activity(events: List[Dict[str, Any]]) -> bool:
     for event in events:
-        if event.get("event_type") in PAYMENT_EVENT_TYPES:
+        meta = event.get("metadata") or {}
+        internal = meta.get("internal_event_type", event.get("event_type", ""))
+        if internal in ("PAYMENT_ENTER", "PAYMENT_EXIT"):
             return True
         if event.get("zone") in PAYMENT_ZONE_NAMES:
+            return True
+        if event.get("zone_id") in ("BILLING", "billQ") and (
+            internal in ("PAYMENT_ENTER", "PAYMENT_EXIT")
+            or event.get("event_type") in ("BILLING_START", "BILLING_COMPLETE")
+        ):
             return True
     return False
 
@@ -157,9 +190,9 @@ def zones_visited(events: List[Dict[str, Any]]) -> List[str]:
     zones: List[str] = []
     seen = set()
     for event in events:
-        if event.get("event_type") != ZONE_ENTER:
+        if event.get("event_type") not in (ZONE_ENTER,):
             continue
-        zone = event.get("zone")
+        zone = event.get("zone") or (event.get("metadata") or {}).get("sku_zone")
         if not zone or zone in seen:
             continue
         seen.add(zone)
@@ -171,7 +204,13 @@ def count_zone_interactions(events: List[Dict[str, Any]]) -> int:
     count = 0
     for event in events:
         event_type = event.get("event_type", "")
-        if event_type in (ZONE_ENTER, "ZONE_EXIT", "DWELL_COMPLETED"):
+        meta = event.get("metadata") or {}
+        internal = meta.get("internal_event_type", event_type)
+        if event_type in (ZONE_ENTER, "ZONE_EXIT", ZONE_DWELL, DWELL_COMPLETED) or internal in (
+            "ZONE_ENTER",
+            "ZONE_EXIT",
+            "DWELL_COMPLETED",
+        ):
             count += 1
         elif event_type in QUEUE_EVENT_TYPES | PAYMENT_EVENT_TYPES:
             count += 1

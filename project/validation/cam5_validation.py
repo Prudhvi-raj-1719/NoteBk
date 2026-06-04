@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -9,7 +10,6 @@ _PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
-from pathlib import Path
 from typing import Dict, List, Tuple
 
 import cv2
@@ -17,21 +17,58 @@ import numpy as np
 import supervision as sv
 from ultralytics import YOLO
 
-from configs.camera_timing_config import CAMERA_VIDEO_FILES, MODEL_PATH
+from configs.camera_timing_config import CAMERA_VIDEO_FILES, DATA_DIR, MODEL_PATH
 
-VIDEO_PATH = CAMERA_VIDEO_FILES["CAM5"]
-WINDOW_NAME = "CAM5 Validation"
+_FOOTAGE2 = os.getenv("VALIDATE_FOOTAGE2") == "1"
+_FOOTAGE2_DIR = DATA_DIR / "CCTV Footage_2"
+
+if _FOOTAGE2:
+    VIDEO_PATH = _FOOTAGE2_DIR / "billing_area.mp4"
+    WINDOW_NAME = "Footage2 Billing Validation"
+else:
+    VIDEO_PATH = CAMERA_VIDEO_FILES["CAM5"]
+    WINDOW_NAME = "CAM5 Validation"
 
 PERSON_CLASS_ID = 0
 OUT_OF_ZONE = "OUT_OF_ZONE"
 CONFIDENCE_THRESHOLD = 0.35
 IOU_THRESHOLD = 0.5
 MIN_OVERLAP_PCT = 10
+PROCESS_EVERY_N_FRAMES = 10
 
-ANNOTATION_WIDTH = 1056
-ANNOTATION_HEIGHT = 629
+_BRIGADE_ANNOTATION_WIDTH = 1056
+_BRIGADE_ANNOTATION_HEIGHT = 629
 
-CAM5_ZONES: Dict[str, List[Tuple[float, float]]] = {
+# Footage2 billing_area.mp4 annotation space (1646 x 1850).
+_FOOTAGE2_IMAGE_WIDTH = 1646
+_FOOTAGE2_IMAGE_HEIGHT = 1850
+
+BILLING_POLYGON = np.array(
+    [
+        [612, 1159],
+        [600, 1331],
+        [1170, 1317],
+        [1146, 1149],
+    ],
+    dtype=np.int32,
+)
+
+BILLQ_POLYGON = np.array(
+    [
+        [474, 563],
+        [433, 1058],
+        [1303, 1023],
+        [1277, 552],
+    ],
+    dtype=np.int32,
+)
+
+
+def _normalized_zone_polygon(polygon: np.ndarray, width: int, height: int) -> List[Tuple[float, float]]:
+    return [(float(x) / width, float(y) / height) for x, y in polygon]
+
+
+_BRIGADE_CAM5_ZONES: Dict[str, List[Tuple[float, float]]] = {
     "BillingQueue": [
         (0.0016, 0.1970),
         (0.2625, 0.1934),
@@ -46,6 +83,25 @@ CAM5_ZONES: Dict[str, List[Tuple[float, float]]] = {
         (0.1594, 0.4869),
     ],
 }
+
+# Footage2 JSON labels Billing / billQ map to existing PaymentArea / BillingQueue logic.
+_FOOTAGE2_CAM5_ZONES: Dict[str, List[Tuple[float, float]]] = {
+    "PaymentArea": _normalized_zone_polygon(
+        BILLING_POLYGON, _FOOTAGE2_IMAGE_WIDTH, _FOOTAGE2_IMAGE_HEIGHT
+    ),
+    "BillingQueue": _normalized_zone_polygon(
+        BILLQ_POLYGON, _FOOTAGE2_IMAGE_WIDTH, _FOOTAGE2_IMAGE_HEIGHT
+    ),
+}
+
+if _FOOTAGE2:
+    ANNOTATION_WIDTH = _FOOTAGE2_IMAGE_WIDTH
+    ANNOTATION_HEIGHT = _FOOTAGE2_IMAGE_HEIGHT
+    CAM5_ZONES = _FOOTAGE2_CAM5_ZONES
+else:
+    ANNOTATION_WIDTH = _BRIGADE_ANNOTATION_WIDTH
+    ANNOTATION_HEIGHT = _BRIGADE_ANNOTATION_HEIGHT
+    CAM5_ZONES = _BRIGADE_CAM5_ZONES
 
 ZONE_PRIORITY: Tuple[str, ...] = ("PaymentArea", "BillingQueue")
 
@@ -382,6 +438,7 @@ def main() -> None:
     print(f"Video resolution: {video_width} x {video_height}")
     print(f"Number of zones: {len(CAM5_ZONES)}")
     print("Zone assignment mode: OVERLAP_PRIORITY (PaymentArea > BillingQueue)")
+    print(f"Process every N frames: {PROCESS_EVERY_N_FRAMES}")
 
     yolo_model = YOLO(MODEL_PATH)
     print("YOLO model loaded successfully")
@@ -390,14 +447,25 @@ def main() -> None:
     print_zone_debug(zone_polygons, video_width, video_height)
 
     tracker = create_byte_tracker()
-    cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
+    headless = os.getenv("VALIDATION_HEADLESS") == "1"
+    save_path = os.getenv("VALIDATION_SAVE_PATH")
+    save_frame = int(os.getenv("VALIDATION_SAVE_FRAME", "0"))
+    save_only = os.getenv("VALIDATION_SAVE_ONLY") == "1"
+    if not headless:
+        cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
 
-    frame_idx = 0
+    original_frame = 0
+    processed_frame = 0
     try:
         while True:
             success, frame = capture.read()
             if not success:
                 break
+
+            if original_frame % PROCESS_EVERY_N_FRAMES != 0:
+                original_frame += 1
+                del frame
+                continue
 
             detections = detect_persons(frame, yolo_model)
             detections = tracker.update_with_detections(detections)
@@ -408,18 +476,30 @@ def main() -> None:
 
             annotated = draw_zones(frame, zone_polygons)
             annotated = annotate_detections(
-                annotated, detections, track_zones, anchor_points, frame_idx
+                annotated, detections, track_zones, anchor_points, original_frame
             )
 
-            cv2.imshow(WINDOW_NAME, annotated)
-            key = cv2.waitKey(1) & 0xFF
-            if key in (ord("q"), 27):
-                break
+            if save_path and original_frame == save_frame:
+                out = Path(save_path)
+                out.parent.mkdir(parents=True, exist_ok=True)
+                cv2.imwrite(str(out), annotated)
+                print(f"Saved validation preview: {out.resolve()}")
+                if save_only:
+                    break
 
-            frame_idx += 1
+            if not headless:
+                cv2.imshow(WINDOW_NAME, annotated)
+                key = cv2.waitKey(1) & 0xFF
+                if key in (ord("q"), 27):
+                    break
+
+            del frame, annotated, detections, track_zones, anchor_points
+            processed_frame += 1
+            original_frame += 1
     finally:
         capture.release()
-        cv2.destroyAllWindows()
+        if not headless:
+            cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":

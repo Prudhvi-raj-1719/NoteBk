@@ -1,0 +1,33 @@
+{"camera": "CAM3", "visitor_id": 1, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 2, "initial_side": "MALL", "initial_store_state": "INSIDE"}
+{"camera": "CAM3", "visitor_id": 3, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 4, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"visitor_id": 4, "camera": "CAM3", "event_type": "ENTRY", "timestamp": "00:00:20.400", "debug": {"previous_side": "STORE", "current_side": "MALL", "previous_store_state": "OUTSIDE", "current_store_state": "INSIDE", "cross_value_before": -55872.000000000044, "cross_value_after": 106367.99999999996}}
+{"camera": "CAM3", "visitor_id": 5, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"visitor_id": 5, "camera": "CAM3", "event_type": "ENTRY", "timestamp": "00:00:31.600", "debug": {"previous_side": "STORE", "current_side": "MALL", "previous_store_state": "OUTSIDE", "current_store_state": "INSIDE", "cross_value_before": -9792.000000000044, "cross_value_after": 163967.99999999994}}
+{"camera": "CAM3", "visitor_id": 6, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 7, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 8, "initial_side": "MALL", "initial_store_state": "INSIDE"}
+{"camera": "CAM3", "visitor_id": 9, "initial_side": "MALL", "initial_store_state": "INSIDE"}
+{"camera": "CAM3", "visitor_id": 10, "initial_side": "MALL", "initial_store_state": "INSIDE"}
+{"visitor_id": 9, "camera": "CAM3", "event_type": "EXIT", "timestamp": "00:00:54.000", "debug": {"previous_side": "MALL", "current_side": "STORE", "previous_store_state": "INSIDE", "current_store_state": "OUTSIDE", "cross_value_before": 72767.99999999996, "cross_value_after": -151872.00000000006}}
+{"camera": "CAM3", "visitor_id": 11, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 12, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 13, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 14, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 15, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 16, "initial_side": "MALL", "initial_store_state": "INSIDE"}
+{"camera": "CAM3", "visitor_id": 17, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 18, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 19, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 20, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 21, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 22, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 23, "initial_side": "MALL", "initial_store_state": "INSIDE"}
+{"visitor_id": 5, "camera": "CAM3", "event_type": "EXIT", "timestamp": "00:01:28.400", "debug": {"previous_side": "MALL", "current_side": "STORE", "previous_store_state": "INSIDE", "current_store_state": "OUTSIDE", "cross_value_before": 136127.99999999994, "cross_value_after": -162432.00000000006}}
+{"visitor_id": 23, "camera": "CAM3", "event_type": "EXIT", "timestamp": "00:01:29.200", "debug": {"previous_side": "MALL", "current_side": "STORE", "previous_store_state": "INSIDE", "current_store_state": "OUTSIDE", "cross_value_before": 102527.99999999996, "cross_value_after": -176832.00000000006}}
+{"camera": "CAM3", "visitor_id": 24, "initial_side": "MALL", "initial_store_state": "INSIDE"}
+{"camera": "CAM3", "visitor_id": 25, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 26, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 27, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}
+{"camera": "CAM3", "visitor_id": 28, "initial_side": "STORE", "initial_store_state": "OUTSIDE"}

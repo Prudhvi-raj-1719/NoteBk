@@ -1,0 +1,6 @@
+# CAM3 OSNet Re-ID (install into project venv after base deps)
+torch>=2.0.0
+torchvision>=0.15.0
+torchreid==0.2.5
+gdown>=4.0.0
+tensorboard>=2.0.0
